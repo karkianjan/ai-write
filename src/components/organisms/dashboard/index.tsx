@@ -1,4 +1,3 @@
-import React from "react";
 import Logo from "@/components/atom/icons/logo";
 import { Notification } from "@/components/atom/icons/notification";
 import { MyProfile } from "@/components/atom/icons/myProfile";
