@@ -6,6 +6,8 @@ import { classNames } from '@/utils/ClassNames';
 import { twMerge } from 'tailwind-merge';
 import Arrow from '@/components/atom/icons/arrow';
 import { Button } from '@/components/ui/button';
+import Logo from '@/components/atom/icons/logo';
+import SmallLogo from '@/components/atom/icons/SmallLogo';
 
 interface SubMenuItem {
   icon?: React.FC<React.SVGProps<SVGSVGElement>>;
@@ -36,7 +38,6 @@ const Sidebar = () => {
 
   // Filtering Logic: Customize this based on your needs
   useEffect(() => {
-    // Example filtering logic: removing certain items based on a condition
     const filtered = dashboardSidebarItems.filter(item => {
     
       return item.text !== 'Admin';
@@ -65,7 +66,34 @@ const Sidebar = () => {
 
   return (
 
-  
+<>
+<div
+        className={classNames(
+          'flex pl-5 pt-3 h-screen flex-col border-r border-light bg-white transition-all duration-200 ease-linear md:shrink-0',
+          !isInnerPages && sidebarOpen ? 'w-60' : 'w-[87px]',
+          
+        )}
+      >
+
+        <div className="relative z-50 my-1 ">
+          <NavLink to="/">
+            {!isInnerPages && sidebarOpen ? <Logo/> : <SmallLogo />}
+          </NavLink>
+          <Button
+            onClick={handleSidebarOpen}
+         
+            className={classNames(
+              'absolute -right-3 z-20 flex border border-gray-darkish bg-white text-black',
+              sidebarOpen ? 'rotate-90' : '-rotate-90',
+              isInnerPages && 'hidden',
+              
+            )}
+          >
+            <span className="h-1 w-3">
+              <Arrow />
+            </span>
+          </Button>
+        </div>
 
     <ul>
       {filteredItems.map((dashboardSidebarItem, index) => (
@@ -92,7 +120,7 @@ const Sidebar = () => {
                       ? 'justify-center'
                       : 'justify-start'
                   ),
-                  'flex items-center gap-4 rounded-md p-3 font-medium hover:bg-green'
+                  'flex items-center gap-4 rounded-md p-3 font-medium hover:bg-green-300'
                 )
               }
             >
@@ -160,10 +188,13 @@ const Sidebar = () => {
         </li>
       ))}
     </ul>
+    </div>
+    </>
   );
 
-  
 };
+
+
 
 
 export default Sidebar;

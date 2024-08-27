@@ -1,5 +1,4 @@
 import { History } from "@/components/atom/icons/history";
-import Logo from "@/components/atom/icons/logo";
 import { MyProfile } from "@/components/atom/icons/myProfile";
 import { Notification } from "@/components/atom/icons/notification";
 
@@ -22,33 +21,28 @@ interface dashboardSidebarItems {
 }
 
 export const dashboardSidebarItems = [
+ 
     {
         id: 1,
-        icon: Logo,
-        link:'/'
-    },
-
-    {
-        id: 2,
         text: 'Permissions',
         icon: History,
         link: '/',
-        subMenus: [
+        subMenus: [ 
             {
                 icon: History,
-                text: 'Plan',
+                text: 'Test1',
                 link:'/',
             },
             {
                 icon: History,
-                text:'Users',
+                text:'Test2',
                 link: '/'
             }
         ]
     },
 
     {
-        id: 3,
+        id: 2,
         text:'Plan',
         icon: Notification,
         link: '/'
@@ -56,32 +50,17 @@ export const dashboardSidebarItems = [
     },
 
     {
-        id: 4,
+        id: 3,
         text:'Users',
         icon: MyProfile,
         link: '/'
     },
 
-    {
-        id: 5,
-        text: '',
-        icon: Notification,
-        link:'/',
-    },
+  
 
-    // {
-    //     id: 6,
-    //     text:'',
-    //     Icon: MyProfile,
-    //     link: '/'
-    // },
-    {
-        id: 7,
-        text: 'Logout',
-        icon: History,
-        link:'/',
-        
-    }
+  
+   
+    
 ]
 
 console.log(dashboardSidebarItems);
