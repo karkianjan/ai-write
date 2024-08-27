@@ -1,5 +1,5 @@
-import { Sidebar } from 'lucide-react'
 import './App.css'
+import Sidebar from './components/organisms/Sidebar'
 function App() {
 
   return (

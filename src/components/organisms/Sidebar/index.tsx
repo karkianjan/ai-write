@@ -7,13 +7,43 @@ import { twMerge } from 'tailwind-merge';
 import Arrow from '@/components/atom/icons/arrow';
 import { Button } from '@/components/ui/button';
 
+interface SubMenuItem {
+  icon?: React.FC<React.SVGProps<SVGSVGElement>>;
+  text: string;
+  link: string;
+}
+
+interface DashboardSidebarItem {
+  id: number;
+  text: string;
+  icon: React.FC<React.SVGProps<SVGSVGElement>>;
+  link: string;
+  subMenus?: SubMenuItem[];
+}
+
 const Sidebar = () => {
   const [submenu, setSubmenu] = useState(false);
   const [sidebarOpen, setSidebarOpen] = useState(true);
-  const [filteredItems, setFilteredItems] = useState(dashboardSidebarItems);
+  const [filteredItems, setFilteredItems] = useState<DashboardSidebarItem[]>([]);
+
   const toolsRef = useRef<HTMLDivElement | null>(null);
   const location = useLocation();
   const isInnerPages = /^\/[^/]+\/[^/]+$/.test(location.pathname);
+
+  const handleSidebarOpen = () => {
+    setSidebarOpen(!sidebarOpen);
+  };
+
+  // Filtering Logic: Customize this based on your needs
+  useEffect(() => {
+    // Example filtering logic: removing certain items based on a condition
+    const filtered = dashboardSidebarItems.filter(item => {
+    
+      return item.text !== 'Admin';
+    });
+
+    setFilteredItems(filtered);
+  }, []); 
 
   // To know if submenu is active or not
   const submenulink = filteredItems.flatMap((item) => item.subMenus);
@@ -34,6 +64,9 @@ const Sidebar = () => {
   }, [location.pathname, sidebarOpen, isSubmenuLinkActive]);
 
   return (
+
+  
+
     <ul>
       {filteredItems.map((dashboardSidebarItem, index) => (
         <li
@@ -41,7 +74,9 @@ const Sidebar = () => {
           className={classNames(
             'group relative',
             index === 1 && 'mt-auto',
-            index === 2 && 'mb-14'
+            index === 4 && 'ml-0',
+            index === 5 && 'ml-0'
+
           )}
         >
           {dashboardSidebarItem.link !== undefined ? (
@@ -57,12 +92,12 @@ const Sidebar = () => {
                       ? 'justify-center'
                       : 'justify-start'
                   ),
-                  'flex items-center gap-4 rounded-md p-3 font-medium hover:bg-green-light'
+                  'flex items-center gap-4 rounded-md p-3 font-medium hover:bg-green'
                 )
               }
             >
               <span>
-                <dashboardSidebarItem.icons />
+                <dashboardSidebarItem.icon />
               </span>
               <span className={classNames(
                 !isInnerPages && sidebarOpen ? 'block' : 'hidden'
@@ -98,7 +133,7 @@ const Sidebar = () => {
                     }}
                   >
                     <span>
-                      <dashboardSidebarItem.icons />
+                      <dashboardSidebarItem.icon />
                     </span>
                     <span
                       className={classNames(
@@ -119,13 +154,16 @@ const Sidebar = () => {
                     </span>
                   </Button>
                 </div>
-              ) : null}
+              ) :null}
             </>
           )}
         </li>
       ))}
     </ul>
   );
+
+  
 };
+
 
 export default Sidebar;
