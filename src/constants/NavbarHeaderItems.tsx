@@ -10,7 +10,7 @@ interface NavbarHeaderItems {
     link: string;
 }
 
-export const NavbarHeaderItems = [
+const NavbarHeaderItems = [
  
     
     {
@@ -30,12 +30,8 @@ export const NavbarHeaderItems = [
 
   
 
-    {
-        id: 3,
-        text:'Logout',
-        icon: MyProfile,
-        link: '/'
-    },
-
     
 ]
+
+
+export default NavbarHeaderItems;

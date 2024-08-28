@@ -1,5 +1,6 @@
 //components
-import React from "react";
+import DashboardLayout from "@/components/Layout/DashboardLayout";
+import NavbarHeader from "@/components/organisms/NavBar/NavbarHeader/NavbarHeader";
 
 
 const Dashboard = () => {
@@ -8,8 +9,8 @@ const Dashboard = () => {
 
     return(
         <>
-   
-        <Dashboard/>
+        <DashboardLayout/>
+        <NavbarHeader/>
         
         </>
     )
