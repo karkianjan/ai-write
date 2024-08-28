@@ -3,6 +3,7 @@ import { classNames } from '@/utils/ClassNames';
 import { Button } from '@/components/ui/button';
 import { useNavigate } from 'react-router-dom';
 import NavbarHeaderItems from '@/constants/NavbarHeaderItems';
+import image from './image.jpg';
 
 interface NavbarHeaderItem {
     id: number;
@@ -21,14 +22,14 @@ export const NavbarHeader = () => {
     }, []);
 
     return (
-        <div className="top-0 z-10 flex w-full items-center justify-between gap-8 bg-dashboard px-6 py-3.5 lg:gap-28">
+        <div className="top-0 z-10 flex w-full h-[88px] bg-gray-100 items-center justify-between  px-6 py-3.5 lg:gap-28">
             <h1 className="hidden shrink-0 text-2xl font-semibold text-dark lg:block">
                 Plan
             </h1>
 
-            <div className='flex flex-row gap-5 items-baseline'>
-            <div >
-               <ul className='flex flex-row gap-3 items-baseline' >
+            <div className='flex flex-row gap-6'>
+            <div className='pt-2'>
+               <ul className='flex flex-row gap-5 items-center ' >
                 {filteredItems.map((item, index) => (
                     <li
                         key={item.id}
@@ -45,7 +46,22 @@ export const NavbarHeader = () => {
                 </ul>
               </div>
 
+                <Button
+                variant ="naked"
+                onClick={() => navigate('/')}
+                className="ml-auto min-w-0"
+                >
+                <div className="size-10 shrink-0 overflow-hidden rounded-full bg-inputBorder p-0">
+                    <img src={image} alt="hey" className="object-cover" />
+                </div>
+              
+                </Button>
 
+              <div className='border-t-2 h-[45px] w-[2px] bg-gray-400 rotate90'>
+                 
+                 
+                
+              </div>
 
             <div>
                 <Button

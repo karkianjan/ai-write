@@ -1,18 +1,26 @@
 import { Suspense } from 'react';
-import { Outlet } from 'react-router-dom';
 // Assets
 // Components
 import Sidebar from '../organisms/Sidebar';
+import NavbarHeader from '../organisms/NavBar/NavbarHeader/NavbarHeader';
+import DashoardBody from '@/Views/Dashboard/DashboardBody';
 const DashboardLayout = () => {
   return (
-    <div className="flex">
-      {/* sidebar */}
+    <div className="flex ">
+   
       <Sidebar />
+      
+      <div className='flex flex-1 flex-col '>
+      <NavbarHeader/>
+      <DashoardBody />
+    
+      
+      </div>
+    
+      
       {/* Main */}
-      <div className="flex h-screen w-full flex-col">
-        <Suspense fallback={<h1>LOADING...</h1>}>
-          <Outlet />
-        </Suspense>
+      <div className="">
+        <Suspense fallback={<h1>LOADING...</h1>}/>
       </div>
     </div>
   );

@@ -69,8 +69,8 @@ const Sidebar = () => {
 <>
 <div
         className={classNames(
-          'flex pl-5 pt-3 h-screen flex-col border-r border-light bg-white transition-all duration-200 ease-linear md:shrink-0',
-          !isInnerPages && sidebarOpen ? 'w-60' : 'w-[87px]',
+          'flex pl-5 pt-3 h-screen flex-col border-r border-light  bg-gray-100 transition-all duration-200 ease-linear md:shrink-0',
+          !isInnerPages && sidebarOpen ? 'w-52' : 'w-[87px]',
           
         )}
       >
@@ -83,7 +83,7 @@ const Sidebar = () => {
             onClick={handleSidebarOpen}
          
             className={classNames(
-              'absolute -right-3 z-20 flex border border-gray-darkish bg-white text-black',
+              'absolute -right-5 z-20 flex  border border-gray-darkish bg-gray-300 text-black hover:bg-white ',
               sidebarOpen ? 'rotate-90' : '-rotate-90',
               isInnerPages && 'hidden',
               
@@ -151,7 +151,7 @@ const Sidebar = () => {
                   <Button
                     type='button'
                     className={classNames(
-                      'flex w-full items-center gap-3 p-3 font-medium text-gray-secondary hover:bg-green-light',
+                      'flex w-full items-center text-center  p-3 font-medium text-gray-secondary hover:bg-green-light',
                       isSubmenuLinkActive
                         ? 'bg-green-light text-primary'
                         : 'bg-white'
@@ -160,12 +160,12 @@ const Sidebar = () => {
                       setSubmenu(!submenu);
                     }}
                   >
-                    <span>
+                    <span >
                       <dashboardSidebarItem.icon />
                     </span>
                     <span
                       className={classNames(
-                        'text-base',
+                        'text-base ',
                         !isInnerPages && sidebarOpen ? 'block' : 'hidden'
                       )}
                     >

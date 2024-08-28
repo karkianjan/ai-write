@@ -21,15 +21,7 @@ const NavbarHeaderItems = [
 
     },
 
-    {
-        id: 2,
-        text:'Users',
-        icon: MyProfile,
-        link: '/'
-    },
-
-  
-
+   
     
 ]
 
