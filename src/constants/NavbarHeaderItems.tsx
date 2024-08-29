@@ -1,4 +1,3 @@
-import { MyProfile } from "@/components/atom/icons/myProfile";
 import { Notification } from "@/components/atom/icons/notification";
 
 
