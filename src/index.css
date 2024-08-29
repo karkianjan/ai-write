@@ -12,7 +12,6 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-/* 
 
 a {
   font-weight: 500;
@@ -64,4 +63,4 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
-} */
+}

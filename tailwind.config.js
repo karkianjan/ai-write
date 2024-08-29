@@ -1,4 +1,4 @@
-/** @type {import('tailwindcss' , 'typeface-inter').Config} */
+/** @type {import('tailwindcss' ).Config} */
 
 module.exports = {
   darkMode: ["class"],
@@ -75,14 +75,4 @@ module.exports = {
     },
   },
   plugins: [require("tailwindcss-animate")],
-};
-
-module.exports = {
-  theme: {
-    extend: {
-      fontFamily: {
-        inter: ["Inter", "sans-serif"],
-      },
-    },
-  },
 };

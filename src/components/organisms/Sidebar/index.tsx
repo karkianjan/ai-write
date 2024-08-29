@@ -67,10 +67,10 @@ const Sidebar = () => {
   return (
 
 <>
-<div
+    <div
         className={classNames(
-          'flex pl-5 pt-3 h-screen flex-col border-r border-light  bg-gray-100 transition-all duration-200 ease-linear md:shrink-0',
-          !isInnerPages && sidebarOpen ? 'w-52' : 'w-[87px]',
+          'flex pl-5 pt-3 h-screen  flex-col border-r border-light  bg-gray-100 transition-all duration-200 ease-linear md:shrink-0',
+          !isInnerPages && sidebarOpen ? 'w-[240px]' : 'w-[87px]',
           
         )}
       >
