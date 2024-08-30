@@ -7,8 +7,15 @@ import {
   AlertDialogCancel,
   AlertDialogAction,
 } from "@/components/ui/alert-dialog";
+import { useState } from "react";
+import CustomDropdown from "./CustumDropDown";
 
 const AddPlan: React.FC = () => {
+  const SelectWithCheckbox = () => {
+    const [options, setOptions] = useState([]);
+    const [selectedOptions, setSelectedOptions] = useState([]);
+  };
+
   return (
     <AlertDialogContent className="w-fit">
       <AlertDialogHeader>
@@ -17,28 +24,30 @@ const AddPlan: React.FC = () => {
           Add plan name and details for your reference
         </AlertDialogDescription>
       </AlertDialogHeader>
-      <form>
-        <div className="py-3 space-y-4 border-input ">
+      <form className="">
+        <div className="py-3  space-y-1  ">
           <label>Enter Plan Name</label>
-          <br />
           <input
             type="text"
             placeholder="Plan name"
-            className="border border-gray-300 rounded p-2 w-full"
+            className="border border-gray-300 rounded p-2 w-full "
           ></input>
           <br />
           <br />
           <label>Description</label>
-          <br />
           <input
             type="text"
             placeholder="Plan Description"
-            className="border border-gray-300 rounded p-2 w-96"
+            className="border border-gray-300 rounded p-2 w-full"
           ></input>
           <br />
-          <div className=""></div>
-          <label>Describe What it is recommended for?</label>
           <br />
+          <div>
+            <label>Features</label>
+            <CustomDropdown />
+          </div>
+          <br />
+          <label>Describe What it is recommended for?</label>
           <input
             type="text"
             placeholder="Plan recommendation"
@@ -48,12 +57,13 @@ const AddPlan: React.FC = () => {
           <br />
 
           <label>Short Description</label>
-          <br />
           <input
             type="text"
-            placeholder="Start growing your business"
+            placeholder="Short Description"
             className="border border-gray-300 rounded p-2 w-full"
           ></input>
+          <br />
+          <br />
         </div>
 
         <AlertDialogFooter>
