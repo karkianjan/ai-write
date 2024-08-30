@@ -7,15 +7,9 @@ import {
   AlertDialogCancel,
   AlertDialogAction,
 } from "@/components/ui/alert-dialog";
-import { useState } from "react";
-import CustomDropdown from "./CustumDropDown";
+import CustomDropdown from "./CostumDropDown";
 
 const AddPlan: React.FC = () => {
-  const SelectWithCheckbox = () => {
-    const [options, setOptions] = useState([]);
-    const [selectedOptions, setSelectedOptions] = useState([]);
-  };
-
   return (
     <AlertDialogContent className="w-fit">
       <AlertDialogHeader>
