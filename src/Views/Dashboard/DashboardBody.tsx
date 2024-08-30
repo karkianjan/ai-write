@@ -1,9 +1,9 @@
 import DashboardFeatures from "@/components/organisms/dashboard/DashboardHeader/DashboardFeatures";
+import AddPlan from "@/components/Plan/AddPlan";
 import { Button } from "@/components/ui/button";
+import { AlertDialogTrigger, AlertDialog } from "@radix-ui/react-alert-dialog";
 
-const DashoardBody = () => {
-  const handleClick = () => {};
-
+const DashoardBody: React.FC = () => {
   return (
     <>
       <div className=" m-10 bg-gray-200 border rounded-md h-full ">
@@ -12,21 +12,24 @@ const DashoardBody = () => {
             <h1 className="pl-10 h-6 text-semibold  hidden shrink-0 text-2xl font-semibold text-dark lg:block">
               Our Plan
             </h1>
-
-            <div className="pr-10">
-              <Button
-                size={"default"}
-                variant="naked"
-                className="h-11 px-6  py-2.5 text-md bg-customGreen text-white font-bold"
-                onClick={handleClick}
-              >
-                Add Plan
-              </Button>
+            <div className="pr-7">
+              <AlertDialog>
+                <AlertDialogTrigger asChild>
+                  <Button
+                    size={"default"}
+                    variant="naked"
+                    className="h-11 px-6 py-2.5 text-md bg-customGreen text-white font-bold"
+                  >
+                    Add Plan
+                  </Button>
+                </AlertDialogTrigger>
+                <AddPlan />
+              </AlertDialog>
             </div>
           </div>
           <div className="flex bg-gray-200  text-customGray pt-10 ">
             <div className=" grid-cols-3 flex justify-around flex-1  ">
-              <div className="bg-white  px-6 ml-10 py-5 w-80 h-[325px] 2xl:h-[383px] 2xl:w-[383px] border rounded-md ">
+              <div className="bg-white  px-6 ml-10 py-5 w-80 h-fit 2xl:h-[383px] 2xl:w-[383px] border rounded-md ">
                 <p className="text-xs flex flex-col leading-none space-y-1">
                   <span className=" font-semibold text-xl">$0</span>
                   <span className="text-xl font-semibold text-dark">FREE</span>
@@ -34,7 +37,7 @@ const DashoardBody = () => {
                     Dictum aliquet arcu egestas massa sed tellus sed arcu velit
                     tincidunt orci.
                   </span>
-                  <div className="border-t-2 rounded h-[1px] w-auto bg-gray-400 rotate90"></div>
+                  <div className="border-t-2 rounded w-auto bg-gray-400 rotate90"></div>
                 </p>
 
                 <div className="mt-4 space-y-1.5 my-3 text-sm text-customGray ">
@@ -58,7 +61,7 @@ const DashoardBody = () => {
                 </div>
               </div>
 
-              <div className="bg-white   px-6  py-5 h-[400px] w-80 2xl:h-[383px] 2xl:w-[383px] border rounded-md">
+              <div className="bg-white   px-6 h-min py-5 w-80 border rounded-md">
                 <p className="text-xs flex flex-col leading-none space-y-1">
                   <span className=" font-semibold text-xl">$24</span>
                   <span className="text-xl font-semibold text-dark">
@@ -68,7 +71,7 @@ const DashoardBody = () => {
                     Dictum aliquet arcu egestas massa sed tellus sed arcu velit
                     tincidunt orci.
                   </span>
-                  <div className="border-t-2 rounded h-[1px] w-auto bg-gray-400 rotate90"></div>
+                  <div className="border-t-2 rounded w-auto bg-gray-400 rotate90"></div>
                 </p>
 
                 <div className="mt-4 space-y-1.5 my-2 text-sm text-customGray ">
@@ -95,7 +98,7 @@ const DashoardBody = () => {
                 </div>
               </div>
 
-              <div className="bg-white mr-10  px-6 h-[450px] py-5 max-w-80 2xl:h-[383px] 2xl:w-[383px] border rounded-md">
+              <div className="bg-white mr-10  px-6  py-5 max-w-80 border rounded-md">
                 <p className="text-xs flex flex-col leading-none space-y-1">
                   <span className=" font-semibold text-xl">$48</span>
                   <span className="text-xl font-semibold text-dark">
