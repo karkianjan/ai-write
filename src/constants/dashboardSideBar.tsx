@@ -42,14 +42,14 @@ export const dashboardSidebarItems = [
     id: 2,
     text: "Plan",
     icon: Notification,
-    link: "/plan",
+    link: "/Plan",
   },
 
   {
     id: 3,
     text: "Users",
     icon: MyProfile,
-    link: "/users",
+    link: "/User",
   },
 ];
 

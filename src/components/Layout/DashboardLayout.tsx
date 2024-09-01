@@ -3,18 +3,15 @@ import { Suspense } from "react";
 // Components
 import Sidebar from "../organisms/Sidebar";
 import NavbarHeader from "../organisms/NavBar/NavbarHeader/NavbarHeader";
-import DashoardBody from "@/Views/Dashboard/DashboardBody";
-const Plan = () => {
+const DashboardLayout = ({}) => {
   return (
     <div className="flex ">
       <Sidebar />
 
       <div className="flex flex-1 flex-col ">
         <NavbarHeader />
-        <DashoardBody />
       </div>
 
-      {/* Main */}
       <div className="">
         <Suspense fallback={<h1>LOADING...</h1>} />
       </div>
@@ -22,4 +19,4 @@ const Plan = () => {
   );
 };
 
-export default Plan;
+export default DashboardLayout;

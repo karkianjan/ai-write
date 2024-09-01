@@ -1,5 +1,5 @@
 import DashboardFeatures from "@/components/organisms/dashboard/DashboardHeader/DashboardFeatures";
-import AddPlan from "@/components/Plan/AddPlan";
+import AddPlan from "@/components/AddPlan/AddPlan";
 import { Button } from "@/components/ui/button";
 import { AlertDialogTrigger, AlertDialog } from "@radix-ui/react-alert-dialog";
 
