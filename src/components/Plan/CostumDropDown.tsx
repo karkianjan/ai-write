@@ -72,7 +72,7 @@ const CustomDropdown: React.FC = () => {
           {options.map((option) => (
             <label
               key={option.id}
-              className="flex items-center p-2 cursor-pointer "
+              className="flex items-center p-2 cursor-pointer"
             >
               <input
                 type="checkbox"

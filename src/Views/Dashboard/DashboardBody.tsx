@@ -18,7 +18,7 @@ const DashoardBody: React.FC = () => {
                   <Button
                     size={"default"}
                     variant="naked"
-                    className="h-11 px-6 py-2.5 text-md bg-customGreen text-white font-bold"
+                    className="h-11 px-6 py-2.5 text-md bg-customGreen  border-none text-white font-bold focus:outline-none"
                   >
                     Add Plan
                   </Button>

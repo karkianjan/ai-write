@@ -62,10 +62,10 @@ const AddPlan: React.FC = () => {
 
         <AlertDialogFooter>
           <div className="flex flex-1 justify-between pt-3">
-            <AlertDialogCancel className="outlline-none border-none bg-customGrayButton text-black text-semibold">
+            <AlertDialogCancel className="outlline-none border-none bg-customGrayButton text-black text-semibold focus:outline-none">
               Cancel
             </AlertDialogCancel>
-            <AlertDialogAction className="bg-customGreen text-white hover:bg-green-800 border-none outline-none ">
+            <AlertDialogAction className="bg-customGreen text-white hover:bg-green-800 border-none focus:outline-none ">
               Confirm
             </AlertDialogAction>
           </div>
