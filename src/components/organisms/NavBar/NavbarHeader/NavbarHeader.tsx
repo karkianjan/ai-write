@@ -22,12 +22,12 @@ export const NavbarHeader = () => {
   }, []);
 
   return (
-    <div className="top-0 z-10 flex w-full h-[88px] bg-gray-100 items-center justify-between  px-6 py-3.5 lg:gap-28">
-      <h1 className="hidden shrink-0 text-2xl font-semibold text-dark lg:block">
+    <div className="top-0 z-10 flex w-full h-[88px] bg-gray-100 items-center justify-end  px-6 py-3.5 lg:gap-28">
+      {/* <h1 className="hidden shrink-0 text-2xl font-semibold text-dark lg:block">
         Plan
-      </h1>
+      </h1> */}
 
-      <div className="flex flex-row gap-6">
+      <div className="flex flex-row  gap-6">
         <div className="pt-2">
           <ul className="flex flex-row gap-5 items-center ">
             {filteredItems.map((item, index) => (

@@ -1,9 +1,9 @@
-import DashboardFeatures from "@/components/organisms/dashboard/DashboardHeader/DashboardFeatures";
+import PlanFeatures from "@/components/organisms/dashboard/DashboardHeader/planFeatures";
 import AddPlan from "@/components/AddPlan/AddPlan";
 import { Button } from "@/components/ui/button";
 import { AlertDialogTrigger, AlertDialog } from "@radix-ui/react-alert-dialog";
 
-const DashoardBody: React.FC = () => {
+const PlanBody: React.FC = () => {
   return (
     <>
       <div className=" m-10 bg-gray-200 border rounded-md h-full ">
@@ -41,17 +41,11 @@ const DashoardBody: React.FC = () => {
                 </p>
 
                 <div className="mt-4 space-y-1.5 my-3 text-sm text-customGray ">
-                  <DashboardFeatures
-                    detail="Manage 1,000+ subs"
-                    status={true}
-                  />
-                  <DashboardFeatures detail="10 landing pages" status={true} />
-                  <DashboardFeatures
-                    detail="Customizable domain"
-                    status={true}
-                  />
-                  <DashboardFeatures detail="15+ integrations" status={true} />
-                  <DashboardFeatures detail="Basic support" status={true} />
+                  <PlanFeatures detail="Manage 1,000+ subs" status={true} />
+                  <PlanFeatures detail="10 landing pages" status={true} />
+                  <PlanFeatures detail="Customizable domain" status={true} />
+                  <PlanFeatures detail="15+ integrations" status={true} />
+                  <PlanFeatures detail="Basic support" status={true} />
                 </div>
 
                 <div className="border-t-2 rounded h-[1px] w-auto bg-gray-400 rotate90"></div>
@@ -75,20 +69,14 @@ const DashoardBody: React.FC = () => {
                 </p>
 
                 <div className="mt-4 space-y-1.5 my-2 text-sm text-customGray ">
-                  <DashboardFeatures
-                    detail="Manage 1,000+ subs"
-                    status={true}
-                  />
-                  <DashboardFeatures detail="10 landing pages" status={true} />
-                  <DashboardFeatures
-                    detail="Customizable domain"
-                    status={true}
-                  />
-                  <DashboardFeatures detail="15+ integrations" status={true} />
-                  <DashboardFeatures detail="Basic support" status={true} />
-                  <DashboardFeatures detail="Basic support" status={true} />
-                  <DashboardFeatures detail="Basic support" status={true} />
-                  <DashboardFeatures detail="Basic support" status={true} />
+                  <PlanFeatures detail="Manage 1,000+ subs" status={true} />
+                  <PlanFeatures detail="10 landing pages" status={true} />
+                  <PlanFeatures detail="Customizable domain" status={true} />
+                  <PlanFeatures detail="Basic support" status={true} />
+                  <PlanFeatures detail="15+ integrations" status={true} />
+                  <PlanFeatures detail="Basic support" status={true} />
+                  <PlanFeatures detail="Basic support" status={true} />
+                  <PlanFeatures detail="Basic support" status={true} />
                 </div>
 
                 <div className="border-t-2 rounded h-[1px] w-auto bg-gray-400 rotate90"></div>
@@ -112,22 +100,16 @@ const DashoardBody: React.FC = () => {
                 </p>
 
                 <div className="mt-4 space-y-1.5 my-2 text-sm  text-customGray ">
-                  <DashboardFeatures
-                    detail="Manage 1,000+ subs"
-                    status={true}
-                  />
-                  <DashboardFeatures detail="10 landing pages" status={true} />
-                  <DashboardFeatures
-                    detail="Customizable domain"
-                    status={true}
-                  />
-                  <DashboardFeatures detail="15+ integrations" status={true} />
-                  <DashboardFeatures detail="15+ integrations" status={true} />
-                  <DashboardFeatures detail="15+ integrations" status={true} />
-                  <DashboardFeatures detail="15+ integrations" status={true} />
-                  <DashboardFeatures detail="Basic support" status={true} />
-                  <DashboardFeatures detail="Basic support" status={true} />
-                  <DashboardFeatures detail="Basic support" status={true} />
+                  <PlanFeatures detail="Manage 1,000+ subs" status={true} />
+                  <PlanFeatures detail="10 landing pages" status={true} />
+                  <PlanFeatures detail="Customizable domain" status={true} />
+                  <PlanFeatures detail="15+ integrations" status={true} />
+                  <PlanFeatures detail="15+ integrations" status={true} />
+                  <PlanFeatures detail="15+ integrations" status={true} />
+                  <PlanFeatures detail="15+ integrations" status={true} />
+                  <PlanFeatures detail="Basic support" status={true} />
+                  <PlanFeatures detail="Basic support" status={true} />
+                  <PlanFeatures detail="Basic support" status={true} />
                 </div>
 
                 <div className="border-t-2 rounded h-[1px] w-auto bg-gray-400 rotate90"></div>
@@ -144,4 +126,4 @@ const DashoardBody: React.FC = () => {
   );
 };
 
-export default DashoardBody;
+export default PlanBody;

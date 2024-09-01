@@ -2,14 +2,16 @@ import { Suspense } from "react";
 // Assets
 // Components
 import Sidebar from "@/components/organisms/Sidebar";
-import NavbarHeader from "@/components/organisms/NavBar/NavbarHeader/NavbarHeader";
+import UserHeader from "./UsersHeader";
+import SearchButton from "@/components/searchField/searchField";
 const Users = () => {
   return (
     <div className="flex ">
       <Sidebar />
 
       <div className="flex flex-1 flex-col ">
-        <NavbarHeader />
+        
+        <UserHeader />
       </div>
 
       <div className="">

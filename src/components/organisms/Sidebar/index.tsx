@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { NavLink, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 // Assets
 import { dashboardSidebarItems } from "@/constants/dashboardSideBar";
 import { classNames } from "@/utils/ClassNames";
@@ -80,7 +81,7 @@ const Sidebar = () => {
           <Button
             onClick={handleSidebarOpen}
             className={classNames(
-              "absolute -right-5 z-20 flex  border border-gray-darkish bg-gray-300 text-black hover:bg-white ",
+              "absolute -right-5 z-20 flex     outline-none bg-gray-300 text-black hover:bg-white ",
               sidebarOpen ? "rotate-90" : "-rotate-90",
               isInnerPages && "hidden"
             )}
@@ -95,12 +96,7 @@ const Sidebar = () => {
           {filteredItems.map((dashboardSidebarItem, index) => (
             <li
               key={dashboardSidebarItem.id}
-              className={classNames(
-                "group relative",
-                index === 1 && "mt-auto",
-                index === 4 && "ml-0",
-                index === 5 && "ml-0"
-              )}
+              className={classNames("group relative", index === 1 && "mt-auto")}
             >
               {dashboardSidebarItem.link !== undefined ? (
                 <NavLink
@@ -108,12 +104,12 @@ const Sidebar = () => {
                   className={({ isActive }) =>
                     twMerge(
                       classNames(
-                        isActive ? " text-primary" : "text-primary ",
+                        isActive ? " bg-customGreen text-white" : "text-black ",
                         !sidebarOpen || isInnerPages
                           ? "justify-center"
                           : "justify-start"
                       ),
-                      "flex items-center gap-4 rounded-md p-3 font-medium   hover:bg-customGreen hover:text-white"
+                      "flex items-center gap-4 rounded-md p-3 font-medium  active:text-white hover:bg-customGreen hover:text-white  "
                     )
                   }
                 >
@@ -146,7 +142,7 @@ const Sidebar = () => {
                       <Button
                         type="button"
                         className={classNames(
-                          "flex w-full items-center text-center  p-3 font-medium text-gray-secondary hover:bg-green-light",
+                          "flex w-full items-center text-center  p-3 font-medium text-gray-secondary hover:bg-green-light border-none",
                           isSubmenuLinkActive
                             ? "bg-green-light text-primary"
                             : "bg-white"

@@ -2,16 +2,16 @@ import { Suspense } from "react";
 // Assets
 // Components
 import Sidebar from "@/components/organisms/Sidebar";
-import NavbarHeader from "@/components/organisms/NavBar/NavbarHeader/NavbarHeader";
-import DashoardBody from "@/Views/Dashboard/DashboardBody";
+import PlanBody from "../Dashboard/PlanBody";
+import PlanHeader from "./PlanHeader";
 const Plan = () => {
   return (
     <div className="flex ">
       <Sidebar />
 
       <div className="flex flex-1 flex-col ">
-        <NavbarHeader />
-        <DashoardBody />
+        <PlanHeader />
+        <PlanBody />
       </div>
 
       <div className="">
