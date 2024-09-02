@@ -1,5 +1,4 @@
 import { useState } from "react";
-import * as React from "react";
 import {
   ColumnDef,
   ColumnFiltersState,
@@ -31,6 +30,10 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import Download from "@/components/atom/icons/download";
+import ArrowLeft from "@/components/atom/icons/leftArrow";
+import SelectUsers from "./SelectUsers";
+import UserHeader from "./UsersHeader";
 
 export type Payment = {
   id: string;
@@ -44,7 +47,7 @@ export type Payment = {
 
 const data: Payment[] = [
   {
-    id: "1",
+    id: "0",
     name: "Tshiring Dorje Sherpa",
     serialNumber: 1,
     email: "Tshiring@gmail.com",
@@ -53,25 +56,25 @@ const data: Payment[] = [
     status: "Paid",
   },
   {
-    id: "2",
+    id: "1",
     name: "Dip Roshan Rai",
     serialNumber: 2,
     email: "dip@gmail.com",
     monthlyFee: 20,
     expiryDate: "2024-11-15",
-    status: "Paid",
+    status: "Pending",
   },
   {
-    id: "3",
+    id: "2",
     name: "Ashmita Chimoriya",
     serialNumber: 3,
     email: "Ahmita44@gmail.com",
     monthlyFee: 20,
     expiryDate: "2024-10-01",
-    status: "Pending",
+    status: "Lock",
   },
   {
-    id: "4",
+    id: "3",
     name: "Nelson Katwal",
     serialNumber: 4,
     email: "Nelson@gmail.com",
@@ -80,7 +83,7 @@ const data: Payment[] = [
     status: "Paid",
   },
   {
-    id: "5",
+    id: "4",
     name: "Rabin Gurung",
     serialNumber: 5,
     email: "Rabin@hotmail.com",
@@ -177,6 +180,19 @@ export function DataTable() {
   const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({});
   const [rowSelection, setRowSelection] = useState({});
 
+  const handleSelectUsers = (selectedOptions: string[]) => {
+    const newRowSelection = {};
+    data.forEach((row) => {
+      if (
+        selectedOptions.includes(row.status) ||
+        selectedOptions.includes("All")
+      ) {
+        newRowSelection[row.id] = true;
+      }
+    });
+    setRowSelection(newRowSelection);
+  };
+
   const table = useReactTable({
     data,
     columns,
@@ -197,99 +213,106 @@ export function DataTable() {
   });
 
   return (
-    <div className="max-m-fit m-10 bg-customLightGray border rounded-md h-full">
-      <div className="flex justify-between pt-6">
-        <div className="flex flex-col">
-          <div className="pl-10 h-6   text-2xl font-semibold text-dark flex flex-row space-x-3">
-            <h1>User Details</h1>
-            <span className="w-fit rounded-md bg-customGreen bg-opacity-10 px-2.5 py-0.5 text-sm">
-              {table.getFilteredRowModel().rows.length} user
-            </span>
+    <>
+      {" "}
+      <UserHeader onSelect={handleSelectUsers} />
+      <div className="max-m-fit m-10 bg-customLightGray border rounded-md h-full">
+        <div className="flex justify-between pt-6">
+          <div className="flex flex-col">
+            <div className="pl-10 h-6   text-2xl font-semibold text-dark flex flex-row space-x-3">
+              <h1>User Details</h1>
+              <span className="w-fit rounded-md bg-customGreen bg-opacity-10 px-2.5 py-0.5 text-sm">
+                {table.getFilteredRowModel().rows.length} user
+              </span>
+            </div>
+
+            <div className=" pl-10 pt-2 text-sm text-customGray font-thin flex ">
+              Keep track of users and manage them
+            </div>
           </div>
 
-          <div className=" pl-10 pt-2 text-sm text-customGray font-thin flex ">
-            Keep track of users and manage them
+          <div className="pr-7">
+            <Button
+              variant="outline"
+              className="hover:border-none hover:bg-none w-fit mr-2.5 "
+            >
+              <span className="flex justify-between items-center space-x-2 ">
+                <Download />
+                <p>Export</p>
+              </span>
+            </Button>
           </div>
         </div>
-
-        <div className="pr-7">
-          <Button
-            variant="outline"
-            className="hover:border-none hover:bg-none w-fit"
-          >
-            Export
-          </Button>
-        </div>
-      </div>
-      <div className="flex items-center py-4 "></div>
-      <div className="  px-10">
-        <Table>
-          <TableHeader className="bg-customTabelHeader text-customHeaderText">
-            {table.getHeaderGroups().map((headerGroup) => (
-              <TableRow key={headerGroup.id}>
-                {headerGroup.headers.map((header) => (
-                  <TableHead key={header.id}>
-                    {header.isPlaceholder
-                      ? null
-                      : flexRender(
-                          header.column.columnDef.header,
-                          header.getContext()
-                        )}
-                  </TableHead>
-                ))}
-              </TableRow>
-            ))}
-          </TableHeader>
-          <TableBody className="bg-white">
-            {table.getRowModel().rows?.length ? (
-              table.getRowModel().rows.map((row) => (
-                <TableRow
-                  key={row.id}
-                  data-state={row.getIsSelected() && "selected"}
-                >
-                  {row.getVisibleCells().map((cell) => (
-                    <TableCell key={cell.id}>
-                      {flexRender(
-                        cell.column.columnDef.cell,
-                        cell.getContext()
-                      )}
-                    </TableCell>
+        <div className="flex items-center py-4 "></div>
+        <div className="  px-10">
+          <Table>
+            <TableHeader className="bg-customTabelHeader text-customHeaderText">
+              {table.getHeaderGroups().map((headerGroup) => (
+                <TableRow key={headerGroup.id}>
+                  {headerGroup.headers.map((header) => (
+                    <TableHead key={header.id}>
+                      {header.isPlaceholder
+                        ? null
+                        : flexRender(
+                            header.column.columnDef.header,
+                            header.getContext()
+                          )}
+                    </TableHead>
                   ))}
                 </TableRow>
-              ))
-            ) : (
-              <TableRow>
-                <TableCell
-                  colSpan={columns.length}
-                  className="h-24 text-center"
-                >
-                  No results.
-                </TableCell>
-              </TableRow>
-            )}
-          </TableBody>
-        </Table>
-      </div>
-      <div className="flex items-center justify-end space-x-2 py-4 pr-10">
-        <div className="space-x-2">
-          <Button
-            variant="outline"
-            size="sm"
-            onClick={() => table.previousPage()}
-            disabled={!table.getCanPreviousPage()}
-          >
-            Arr
-          </Button>
-          <Button
-            variant="outline"
-            size="sm"
-            onClick={() => table.nextPage()}
-            disabled={!table.getCanNextPage()}
-          >
-            Arr
-          </Button>
+              ))}
+            </TableHeader>
+            <TableBody className="bg-white">
+              {table.getRowModel().rows?.length ? (
+                table.getRowModel().rows.map((row) => (
+                  <TableRow
+                    key={row.id}
+                    data-state={row.getIsSelected() && "selected"}
+                  >
+                    {row.getVisibleCells().map((cell) => (
+                      <TableCell key={cell.id}>
+                        {flexRender(
+                          cell.column.columnDef.cell,
+                          cell.getContext()
+                        )}
+                      </TableCell>
+                    ))}
+                  </TableRow>
+                ))
+              ) : (
+                <TableRow>
+                  <TableCell
+                    colSpan={columns.length}
+                    className="h-24 text-center"
+                  >
+                    No results.
+                  </TableCell>
+                </TableRow>
+              )}
+            </TableBody>
+          </Table>
+        </div>
+        <div className="flex items-center justify-end space-x-2 py-4 pr-10">
+          <div className="space-x-2">
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => table.previousPage()}
+              disabled={!table.getCanPreviousPage()}
+            >
+              <ArrowLeft />
+            </Button>
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => table.nextPage()}
+              disabled={!table.getCanNextPage()}
+            >
+              <ArrowLeft />
+            </Button>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }

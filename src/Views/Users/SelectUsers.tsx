@@ -6,7 +6,11 @@ interface Option {
   label: string;
 }
 
-const SelectUsers: React.FC = () => {
+interface SelectUsersProps {
+  onSelect: (selectedOptions: string[]) => void;
+}
+
+const SelectUsers: React.FC<SelectUsersProps> = ({ onSelect }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [options, setOptions] = useState<Option[]>([]);
   const [selectedOptions, setSelectedOptions] = useState<string[]>([]);
@@ -15,10 +19,9 @@ const SelectUsers: React.FC = () => {
   useEffect(() => {
     const fetchOptions = async () => {
       setOptions([
-        { id: 1, value: "All", label: "All" },
-        { id: 2, value: "Paid", label: "Paid" },
-        { id: 3, value: "Pending", label: "Pending" },
-        { id: 4, value: "Lock", label: "Lock" },
+        { id: 1, value: "Paid", label: "Paid" },
+        { id: 2, value: "Pending", label: "Pending" },
+        { id: 3, value: "Lock", label: "Lock" },
       ]);
     };
 
@@ -26,11 +29,25 @@ const SelectUsers: React.FC = () => {
   }, []);
 
   const handleCheckboxChange = (value: string) => {
-    setSelectedOptions((prevSelected) =>
-      prevSelected.includes(value)
+    setSelectedOptions((prevSelected) => {
+      const newSelected = prevSelected.includes(value)
         ? prevSelected.filter((item) => item !== value)
-        : [...prevSelected, value]
-    );
+        : [...prevSelected, value];
+
+      onSelect(newSelected);
+      return newSelected;
+    });
+  };
+
+  const handleSelectAll = () => {
+    if (selectedOptions.length === options.length - 1) {
+      setSelectedOptions([]);
+      onSelect([]);
+    } else {
+      const allOptions = options.map((option) => option.value);
+      setSelectedOptions(allOptions);
+      onSelect(allOptions);
+    }
   };
 
   const handleClickOutside = (event: MouseEvent) => {
@@ -53,9 +70,9 @@ const SelectUsers: React.FC = () => {
     <div className="relative" ref={dropdownRef}>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className=" flex  items-center text-gray-700 border border-gray-300 bg-white rounded-md p-2 hover:border-none "
+        className="flex items-center text-gray-700 border border-gray-300 bg-white rounded-md p-2 hover:border-none"
       >
-        <div className="flex  space-x-16">
+        <div className="flex space-x-16">
           <span>{selectedOptions.length > 0 ? "All" : "All"}</span>
           <svg
             className={`w-5 h-5 transition-transform ${
@@ -78,6 +95,15 @@ const SelectUsers: React.FC = () => {
 
       {isOpen && (
         <div className="absolute mt-1 w-full bg-white border border-gray-300 rounded-md outline-none shadow-lg z-10">
+          <label className="flex items-center p-2 cursor-pointer hover:bg-gray-100">
+            <input
+              type="checkbox"
+              checked={selectedOptions.length === options.length - 1}
+              onChange={handleSelectAll}
+              className="mr-2"
+            />
+            All
+          </label>
           {options.map((option) => (
             <label
               key={option.id}

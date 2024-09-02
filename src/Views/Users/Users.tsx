@@ -2,7 +2,6 @@ import { Suspense } from "react";
 // Assets
 // Components
 import Sidebar from "@/components/organisms/Sidebar";
-import UserHeader from "./UsersHeader";
 import { DataTable } from "./DataTable";
 const Users = () => {
   return (
@@ -10,7 +9,6 @@ const Users = () => {
       <Sidebar />
 
       <div className="flex flex-1 flex-col ">
-        <UserHeader />
         <DataTable />
       </div>
 
