@@ -1,5 +1,6 @@
 import NavbarHeader from "@/components/organisms/NavBar/NavbarHeader/NavbarHeader";
 import SearchButton from "@/components/searchField/searchField";
+import SelectUsers from "./SelectUsers";
 
 const UserHeader = () => {
   return (
@@ -9,8 +10,10 @@ const UserHeader = () => {
       </h1>
 
       <SearchButton />
-
-      <NavbarHeader />
+      <div className=" flex items-center">
+        <SelectUsers />
+        <NavbarHeader />'
+      </div>
     </div>
   );
 };

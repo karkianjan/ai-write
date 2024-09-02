@@ -24,7 +24,7 @@ const Checkbox = forwardRef<HTMLInputElement, Props>(
           className="flex cursor-pointer items-center space-x-2.5"
         >
           {labelText && (
-            <span className="text-sm  text-smallText">{labelText}</span>
+            <span className="text-sm text-smallText">{labelText}</span>
           )}
           <span className="overflow-hidden rounded-[4px] border border-light">
             <svg
@@ -38,13 +38,13 @@ const Checkbox = forwardRef<HTMLInputElement, Props>(
               </mask>
               <rect
                 mask="url(#path-1-inside-1_476_5-37)"
-                stroke-width="40"
+                strokeWidth="40"
                 className="custom-checkbox-box"
                 height="200"
                 width="200"
               ></rect>
               <path
-                stroke-width="15"
+                strokeWidth="15"
                 d="M52 111.018L76.9867 136L149 64"
                 className="custom-checkbox-tick"
               ></path>
@@ -55,5 +55,7 @@ const Checkbox = forwardRef<HTMLInputElement, Props>(
     );
   }
 );
+
+Checkbox.displayName = "Checkbox"; // Add displayName for better debugging
 
 export default Checkbox;

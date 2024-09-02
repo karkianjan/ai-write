@@ -21,6 +21,9 @@ module.exports = {
       colors: {
         customGreen: "#08875D",
         customGray: "#6D758F",
+        customLightGray: "#FAFAFA",
+        customHeaderText: "#6B7280",
+        customTabelHeader: "#F5F5F5",
         customGrayButton: "#D9D9D9",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

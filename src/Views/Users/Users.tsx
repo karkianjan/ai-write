@@ -3,15 +3,15 @@ import { Suspense } from "react";
 // Components
 import Sidebar from "@/components/organisms/Sidebar";
 import UserHeader from "./UsersHeader";
-import SearchButton from "@/components/searchField/searchField";
+import { DataTable } from "./DataTable";
 const Users = () => {
   return (
     <div className="flex ">
       <Sidebar />
 
       <div className="flex flex-1 flex-col ">
-        
         <UserHeader />
+        <DataTable />
       </div>
 
       <div className="">
