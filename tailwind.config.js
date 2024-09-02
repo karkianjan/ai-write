@@ -19,11 +19,14 @@ module.exports = {
     },
     extend: {
       colors: {
+        customPendingText: "#5521B5",
+        customPaid: "#DEF7EC",
+        customPending: "#EDEBFE",
         customGreen: "#08875D",
         customGray: "#6D758F",
         customLightGray: "#FAFAFA",
         customHeaderText: "#6B7280",
-        customTabelHeader: "#F5F5F5",
+        customTabelHeader: "#F6F6F6",
         customGrayButton: "#D9D9D9",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

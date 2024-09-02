@@ -14,14 +14,7 @@ import {
 import { MoreHorizontal } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+
 import {
   Table,
   TableBody,
@@ -34,6 +27,8 @@ import Download from "@/components/atom/icons/download";
 import ArrowLeft from "@/components/atom/icons/leftArrow";
 import SelectUsers from "./SelectUsers";
 import UserHeader from "./UsersHeader";
+import { EyeShow } from "@/components/atom/icons/eye";
+import Close from "@/components/atom/icons/close";
 
 export type Payment = {
   id: string;
@@ -138,36 +133,39 @@ export const columns: ColumnDef<Payment>[] = [
   {
     accessorKey: "status",
     header: "STATUS",
-    cell: ({ row }) => (
-      <div className="capitalize ">{row.getValue("status")}</div>
-    ),
+    cell: ({ row }) => {
+      const status = row.getValue("status");
+      const statusStyles = {
+        Paid: "bg-customPaid border rounded-md  text-green-900",
+        Pending: "bg-customPending text-customPendingText  ",
+        Lock: "bg-red-100 text-red-800 border rounded-md",
+      };
+
+      return (
+        <div
+          className={` px-2 py-1 items-center m-auto justify-center flex rounded ${statusStyles[status]}`}
+        >
+          {row.getValue("status")}
+        </div>
+      );
+    },
   },
   {
     id: "actions",
+    header: "ACTION",
     enableHiding: false,
     cell: ({ row }) => {
       const payment = row.original;
 
       return (
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <Button variant="ghost" className="h-8 w-8 p-0">
-              <span className="sr-only">Open menu</span>
-              <MoreHorizontal className="h-4 w-4" />
-            </Button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent align="end">
-            <DropdownMenuLabel>Actions</DropdownMenuLabel>
-            <DropdownMenuItem
-              onClick={() => navigator.clipboard.writeText(payment.id)}
-            >
-              Copy payment ID
-            </DropdownMenuItem>
-            <DropdownMenuSeparator />
-            <DropdownMenuItem>View customer</DropdownMenuItem>
-            <DropdownMenuItem>View payment details</DropdownMenuItem>
-          </DropdownMenuContent>
-        </DropdownMenu>
+        <div>
+          <Button variant="ghost" className="h-8 w-8 p-0 hover:border-none">
+            <EyeShow />
+          </Button>
+          <Button variant="ghost" className="h-8 w-8 p-0 hover:border-none">
+            <Close />
+          </Button>
+        </div>
       );
     },
   },
@@ -214,19 +212,18 @@ export function DataTable() {
 
   return (
     <>
-      {" "}
       <UserHeader onSelect={handleSelectUsers} />
       <div className="max-m-fit m-10 bg-customLightGray border rounded-md h-full">
         <div className="flex justify-between pt-6">
           <div className="flex flex-col">
-            <div className="pl-10 h-6   text-2xl font-semibold text-dark flex flex-row space-x-3">
+            <div className="pl-10 h-6 text-2xl font-semibold text-dark flex flex-row space-x-3">
               <h1>User Details</h1>
               <span className="w-fit rounded-md bg-customGreen bg-opacity-10 px-2.5 py-0.5 text-sm">
                 {table.getFilteredRowModel().rows.length} user
               </span>
             </div>
 
-            <div className=" pl-10 pt-2 text-sm text-customGray font-thin flex ">
+            <div className="pl-10 pt-2 text-sm text-customGray font-thin flex">
               Keep track of users and manage them
             </div>
           </div>
@@ -234,17 +231,17 @@ export function DataTable() {
           <div className="pr-7">
             <Button
               variant="outline"
-              className="hover:border-none hover:bg-none w-fit mr-2.5 "
+              className="hover:border-none hover:bg-none w-fit mr-2.5"
             >
-              <span className="flex justify-between items-center space-x-2 ">
+              <span className="flex justify-between items-center space-x-2">
                 <Download />
                 <p>Export</p>
               </span>
             </Button>
           </div>
         </div>
-        <div className="flex items-center py-4 "></div>
-        <div className="  px-10">
+        <div className="flex items-center py-4"></div>
+        <div className="px-10">
           <Table>
             <TableHeader className="bg-customTabelHeader text-customHeaderText">
               {table.getHeaderGroups().map((headerGroup) => (
@@ -262,7 +259,7 @@ export function DataTable() {
                 </TableRow>
               ))}
             </TableHeader>
-            <TableBody className="bg-white">
+            <TableBody className="bg-white ">
               {table.getRowModel().rows?.length ? (
                 table.getRowModel().rows.map((row) => (
                   <TableRow
@@ -308,7 +305,7 @@ export function DataTable() {
               onClick={() => table.nextPage()}
               disabled={!table.getCanNextPage()}
             >
-              <ArrowLeft />
+              <ArrowLeft className="transform rotate-180" />
             </Button>
           </div>
         </div>

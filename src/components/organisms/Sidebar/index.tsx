@@ -96,7 +96,10 @@ const Sidebar = () => {
           {filteredItems.map((dashboardSidebarItem, index) => (
             <li
               key={dashboardSidebarItem.id}
-              className={classNames("group relative", index === 1 && "mt-auto")}
+              className={classNames(
+                "group relative my-1",
+                index === 1 && "mt-auto"
+              )}
             >
               {dashboardSidebarItem.link !== undefined ? (
                 <NavLink

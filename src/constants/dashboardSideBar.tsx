@@ -2,14 +2,12 @@ import { History } from "@/components/atom/icons/history";
 import { MyProfile } from "@/components/atom/icons/myProfile";
 import { Notification } from "@/components/atom/icons/notification";
 
-// Define an interface for submenu items
 interface SubMenuItem {
   icon: React.FC<React.SVGProps<SVGSVGElement>>;
   text: string;
   link: string;
 }
 
-// Define an interface for sidebar items
 interface dashboardSidebarItems {
   id: number;
   text: string;

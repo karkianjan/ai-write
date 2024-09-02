@@ -70,7 +70,7 @@ const SelectUsers: React.FC<SelectUsersProps> = ({ onSelect }) => {
     <div className="relative" ref={dropdownRef}>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center text-gray-700 border border-gray-300 bg-white rounded-md p-2 hover:border-none"
+        className="flex items-center text-gray-700 border border-gray-200 bg-white rounded-md p-2 hover:border-none"
       >
         <div className="flex space-x-16">
           <span>{selectedOptions.length > 0 ? "All" : "All"}</span>
