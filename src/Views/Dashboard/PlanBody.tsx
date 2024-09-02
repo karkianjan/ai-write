@@ -30,7 +30,7 @@ const PlanBody: React.FC = () => {
           <div className="flex bg-customLightGray  text-customGray pt-10 ">
             <div className=" grid-cols-3 flex justify-around flex-1  ">
               <div className="bg-white  px-6 ml-10 py-5 w-80 h-fit 2xl:h-[383px] 2xl:w-[383px] border rounded-md ">
-                <p className="text-xs flex flex-col leading-none space-y-1">
+                <div className="text-xs flex flex-col leading-none space-y-1">
                   <span className=" font-semibold text-xl">$0</span>
                   <span className="text-xl font-semibold text-dark">FREE</span>
                   <span>
@@ -38,7 +38,7 @@ const PlanBody: React.FC = () => {
                     tincidunt orci.
                   </span>
                   <div className="border-t-2 rounded w-auto bg-gray-400 rotate90"></div>
-                </p>
+                </div>
 
                 <div className="mt-4 space-y-1.5 my-3 text-sm text-customGray ">
                   <PlanFeatures detail="Manage 1,000+ subs" status={true} />
@@ -56,7 +56,7 @@ const PlanBody: React.FC = () => {
               </div>
 
               <div className="bg-white   px-6 h-min py-5 w-80 border rounded-md">
-                <p className="text-xs flex flex-col leading-none space-y-1">
+                <div className="text-xs flex flex-col leading-none space-y-1">
                   <span className=" font-semibold text-xl">$24</span>
                   <span className="text-xl font-semibold text-dark">
                     Mini Business
@@ -66,7 +66,7 @@ const PlanBody: React.FC = () => {
                     tincidunt orci.
                   </span>
                   <div className="border-t-2 rounded w-auto bg-gray-400 rotate90"></div>
-                </p>
+                </div>
 
                 <div className="mt-4 space-y-1.5 my-2 text-sm text-customGray ">
                   <PlanFeatures detail="Manage 1,000+ subs" status={true} />
@@ -87,7 +87,7 @@ const PlanBody: React.FC = () => {
               </div>
 
               <div className="bg-white mr-10  px-6  py-5 max-w-80 border rounded-md">
-                <p className="text-xs flex flex-col leading-none space-y-1">
+                <div className="text-xs flex flex-col leading-none space-y-1">
                   <span className=" font-semibold text-xl">$48</span>
                   <span className="text-xl font-semibold text-dark">
                     Enterprise Business
@@ -97,7 +97,7 @@ const PlanBody: React.FC = () => {
                     tincidunt orci.
                   </span>
                   <div className="border-t-2 rounded h-[1px] w-auto bg-gray-400 rotate90"></div>
-                </p>
+                </div>
 
                 <div className="mt-4 space-y-1.5 my-2 text-sm  text-customGray ">
                   <PlanFeatures detail="Manage 1,000+ subs" status={true} />

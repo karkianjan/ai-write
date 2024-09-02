@@ -11,7 +11,6 @@ import {
   getSortedRowModel,
   useReactTable,
 } from "@tanstack/react-table";
-import { MoreHorizontal } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 
@@ -25,7 +24,6 @@ import {
 } from "@/components/ui/table";
 import Download from "@/components/atom/icons/download";
 import ArrowLeft from "@/components/atom/icons/leftArrow";
-import SelectUsers from "./SelectUsers";
 import UserHeader from "./UsersHeader";
 import { EyeShow } from "@/components/atom/icons/eye";
 import Close from "@/components/atom/icons/close";
@@ -115,7 +113,7 @@ export const columns: ColumnDef<Payment>[] = [
     accessorKey: "monthlyFee",
     header: () => <div className="">MONTHLY FEE</div>,
     cell: ({ row }) => {
-      const amount = parseFloat(row.getValue("monthlyFee").toString());
+      const amount = parseFloat(row.getValue("monthlyFee"));
 
       const formatted = new Intl.NumberFormat("en-US", {
         style: "currency",
@@ -135,7 +133,7 @@ export const columns: ColumnDef<Payment>[] = [
     header: "STATUS",
     cell: ({ row }) => {
       const status = row.getValue("status");
-      const statusStyles = {
+      const statusStyles: { [key: string]: string } = {
         Paid: "bg-customPaid border rounded-md  text-green-900",
         Pending: "bg-customPending text-customPendingText  ",
         Lock: "bg-red-100 text-red-800 border rounded-md",
@@ -145,7 +143,7 @@ export const columns: ColumnDef<Payment>[] = [
         <div
           className={` px-2 py-1 items-center m-auto justify-center flex rounded ${statusStyles[status]}`}
         >
-          {row.getValue("status")}
+          {"status"}
         </div>
       );
     },
@@ -154,9 +152,7 @@ export const columns: ColumnDef<Payment>[] = [
     id: "actions",
     header: "ACTION",
     enableHiding: false,
-    cell: ({ row }) => {
-      const payment = row.original;
-
+    cell: ({}) => {
       return (
         <div>
           <Button variant="ghost" className="h-8 w-8 p-0 hover:border-none">
@@ -179,7 +175,7 @@ export function DataTable() {
   const [rowSelection, setRowSelection] = useState({});
 
   const handleSelectUsers = (selectedOptions: string[]) => {
-    const newRowSelection = {};
+    const newRowSelection: { [key: string]: boolean } = {};
     data.forEach((row) => {
       if (
         selectedOptions.includes(row.status) ||
@@ -305,7 +301,7 @@ export function DataTable() {
               onClick={() => table.nextPage()}
               disabled={!table.getCanNextPage()}
             >
-              <ArrowLeft className="transform rotate-180" />
+              <ArrowLeft />
             </Button>
           </div>
         </div>

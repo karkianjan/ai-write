@@ -40,7 +40,7 @@ const SelectUsers: React.FC<SelectUsersProps> = ({ onSelect }) => {
   };
 
   const handleSelectAll = () => {
-    if (selectedOptions.length === options.length - 1) {
+    if (selectedOptions.length === options.length) {
       setSelectedOptions([]);
       onSelect([]);
     } else {
