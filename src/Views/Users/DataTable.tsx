@@ -23,10 +23,10 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import Download from "@/components/atom/icons/download";
-import ArrowLeft from "@/components/atom/icons/leftArrow";
 import UserHeader from "./UsersHeader";
 import { EyeShow } from "@/components/atom/icons/eye";
 import Close from "@/components/atom/icons/close";
+import { Pagination } from "@/components/ui/pagination";
 
 export type Payment = {
   id: string;
@@ -141,7 +141,9 @@ export const columns: ColumnDef<Payment>[] = [
 
       return (
         <div
-          className={` px-2 py-1 items-center m-auto justify-center flex rounded ${statusStyles[status as string]}`}
+          className={` px-2 py-1 items-center m-auto justify-center flex rounded ${
+            statusStyles[status as string]
+          }`}
         >
           {status as string}
         </div>
@@ -155,8 +157,7 @@ export const columns: ColumnDef<Payment>[] = [
     cell: ({}) => {
       return (
         <div>
-          <Button variant="ghost" className="h-8 w-8 p-0 hover:border-none"
-          >
+          <Button variant="ghost" className="h-8 w-8 p-0 hover:border-none">
             <EyeShow />
           </Button>
           <Button variant="ghost" className="h-8 w-8 p-0 hover:border-none">
@@ -287,23 +288,9 @@ export function DataTable() {
           </Table>
         </div>
         <div className="flex items-center justify-end space-x-2 py-4 pr-10">
-          <div className="space-x-2">
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={() => table.previousPage()}
-              disabled={!table.getCanPreviousPage()}
-            >
-              <ArrowLeft />
-            </Button>
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={() => table.nextPage()}
-              disabled={!table.getCanNextPage()}
-            >
-              <ArrowLeft />
-            </Button>
+          <div className="">
+            <Pagination />
+            <h1></h1>
           </div>
         </div>
       </div>
