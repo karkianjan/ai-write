@@ -141,9 +141,9 @@ export const columns: ColumnDef<Payment>[] = [
 
       return (
         <div
-          className={` px-2 py-1 items-center m-auto justify-center flex rounded ${statusStyles[status]}`}
+          className={` px-2 py-1 items-center m-auto justify-center flex rounded ${statusStyles[status as string]}`}
         >
-          {"status"}
+          {status as string}
         </div>
       );
     },
@@ -155,7 +155,8 @@ export const columns: ColumnDef<Payment>[] = [
     cell: ({}) => {
       return (
         <div>
-          <Button variant="ghost" className="h-8 w-8 p-0 hover:border-none">
+          <Button variant="ghost" className="h-8 w-8 p-0 hover:border-none"
+          >
             <EyeShow />
           </Button>
           <Button variant="ghost" className="h-8 w-8 p-0 hover:border-none">

@@ -1,20 +1,20 @@
 import PlanFeatures from "@/components/organisms/dashboard/DashboardHeader/planFeatures";
-import AddPlan from "@/components/AddPlan/AddPlan";
 import { Button } from "@/components/ui/button";
-import { AlertDialogTrigger, AlertDialog } from "@radix-ui/react-alert-dialog";
+import { Dialog, DialogTrigger } from "@/components/ui/dialog";
+import { AddPlan } from "@/components/AddPlan/plan";
 
 const PlanBody: React.FC = () => {
   return (
     <>
-      <div className=" m-10 bg-customLightGray border rounded-lg h-full ">
+      <div className=" m-10 bg-customLightGray border rounded-lg h-fit ">
         <div className="   xl:h-24  items-center">
           <div className="flex justify-between pt-6">
             <h1 className="pl-10 h-6 text-semibold  hidden shrink-0 text-2xl font-semibold text-dark lg:block">
               Our Plan
             </h1>
             <div className="pr-7">
-              <AlertDialog>
-                <AlertDialogTrigger asChild>
+              <Dialog>
+                <DialogTrigger asChild>
                   <Button
                     size={"default"}
                     variant="naked"
@@ -22,9 +22,10 @@ const PlanBody: React.FC = () => {
                   >
                     Add Plan
                   </Button>
-                </AlertDialogTrigger>
+                </DialogTrigger>
+
                 <AddPlan />
-              </AlertDialog>
+              </Dialog>
             </div>
           </div>
           <div className="flex bg-customLightGray  text-customGray pt-10 ">

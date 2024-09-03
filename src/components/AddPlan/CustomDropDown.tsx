@@ -6,11 +6,7 @@ interface Option {
   label: string;
 }
 
-interface SelectUsersProps {
-  onSelect: (selectedOptions: string[]) => void;
-}
-
-const SelectUsers: React.FC<SelectUsersProps> = ({ onSelect }) => {
+const CustomDropdown: React.FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [options, setOptions] = useState<Option[]>([]);
   const [selectedOptions, setSelectedOptions] = useState<string[]>([]);
@@ -19,9 +15,12 @@ const SelectUsers: React.FC<SelectUsersProps> = ({ onSelect }) => {
   useEffect(() => {
     const fetchOptions = async () => {
       setOptions([
-        { id: 1, value: "Paid", label: "Paid" },
-        { id: 2, value: "Pending", label: "Pending" },
-        { id: 3, value: "Lock", label: "Lock" },
+        { id: 1, value: "Features 1", label: "Features 1" },
+        { id: 2, value: "Features 2", label: "Features 2" },
+        { id: 3, value: "Features 3", label: "Features 3" },
+        { id: 4, value: "Features 4", label: "Features 4" },
+        { id: 5, value: "Features 5", label: "Features 5" },
+        { id: 6, value: "Features 6", label: "Features 6" },
       ]);
     };
 
@@ -34,20 +33,8 @@ const SelectUsers: React.FC<SelectUsersProps> = ({ onSelect }) => {
         ? prevSelected.filter((item) => item !== value)
         : [...prevSelected, value];
 
-      onSelect(newSelected);
       return newSelected;
     });
-  };
-
-  const handleSelectAll = () => {
-    if (selectedOptions.length === options.length) {
-      setSelectedOptions([]);
-      onSelect([]);
-    } else {
-      const allOptions = options.map((option) => option.value);
-      setSelectedOptions(allOptions);
-      onSelect(allOptions);
-    }
   };
 
   const handleClickOutside = (event: MouseEvent) => {
@@ -61,6 +48,7 @@ const SelectUsers: React.FC<SelectUsersProps> = ({ onSelect }) => {
 
   useEffect(() => {
     document.addEventListener("mousedown", handleClickOutside);
+
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
@@ -70,10 +58,14 @@ const SelectUsers: React.FC<SelectUsersProps> = ({ onSelect }) => {
     <div className="relative" ref={dropdownRef}>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center text-gray-700 border border-gray-200 bg-white rounded-md p-2 hover:border-none"
+        className="w-full flex text-gray-400 border border-gray-300 rounded-md p-2"
       >
-        <div className="flex space-x-16">
-          <span>{selectedOptions.length > 0 ? "All" : "All"}</span>
+        <div className="flex justify-between w-full">
+          <span>
+            {selectedOptions.length > 0
+              ? selectedOptions.join(", ")
+              : "Select features"}
+          </span>
           <svg
             className={`w-5 h-5 transition-transform ${
               isOpen ? "transform rotate-180" : ""
@@ -94,28 +86,19 @@ const SelectUsers: React.FC<SelectUsersProps> = ({ onSelect }) => {
       </button>
 
       {isOpen && (
-        <div className="absolute  w-full bg-white border border-gray-300 rounded-md outline-none shadow-lg z-10">
-          <label className="flex items-center p-2 cursor-pointer hover:bg-gray-100">
-            <input
-              type="checkbox"
-              checked={selectedOptions.length === options.length - 1}
-              onChange={handleSelectAll}
-              className="mr-2"
-            />
-            All
-          </label>
+        <div className="absolute mt-1 w-full bg-white border border-gray-300 rounded-md shadow-lg">
           {options.map((option) => (
             <label
               key={option.id}
-              className="flex items-center p-2 cursor-pointer hover:bg-gray-100"
+              className="flex items-center p-2 hover:bg-gray-100 cursor-pointer"
             >
               <input
                 type="checkbox"
                 checked={selectedOptions.includes(option.value)}
                 onChange={() => handleCheckboxChange(option.value)}
-                className="mr-2"
+                className="form-checkbox h-4 w-4 text-indigo-600"
               />
-              {option.label}
+              <span className="ml-2 text-gray-700">{option.label}</span>
             </label>
           ))}
         </div>
@@ -124,4 +107,4 @@ const SelectUsers: React.FC<SelectUsersProps> = ({ onSelect }) => {
   );
 };
 
-export default SelectUsers;
+export default CustomDropdown;

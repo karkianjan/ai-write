@@ -19,6 +19,8 @@ module.exports = {
     },
     extend: {
       colors: {
+        customUserSubHeader: "#4A555D",
+        customDeleteAccount: "#C81E1E",
         customPendingText: "#5521B5",
         customPaid: "#DEF7EC",
         customPending: "#EDEBFE",
