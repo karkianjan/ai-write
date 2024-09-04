@@ -1,32 +1,21 @@
 import { useState } from "react";
 import {
   ColumnDef,
-  ColumnFiltersState,
   SortingState,
+  ColumnFiltersState,
   VisibilityState,
-  flexRender,
   getCoreRowModel,
   getFilteredRowModel,
   getPaginationRowModel,
   getSortedRowModel,
   useReactTable,
 } from "@tanstack/react-table";
-
 import { Button } from "@/components/ui/button";
-
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@/components/ui/table";
 import Download from "@/components/atom/icons/download";
-import UserHeader from "./UsersHeader";
-import { EyeShow } from "@/components/atom/icons/eye";
+import UserHeader from "../Users/UsersHeader";
+import { TableComponent } from "./Tablecomponent";
 import Close from "@/components/atom/icons/close";
-import UsersTablePagination from "./TablePagination";
+import { EyeShow } from "@/components/atom/icons/eye";
 
 export type Payment = {
   id: string;
@@ -220,7 +209,6 @@ export function DataTable() {
                 {table.getFilteredRowModel().rows.length} user
               </span>
             </div>
-
             <div className="pl-10 pt-2 text-sm text-customGray font-thin flex">
               Keep track of users and manage them
             </div>
@@ -238,58 +226,11 @@ export function DataTable() {
             </Button>
           </div>
         </div>
-        <div className="flex items-center py-4"></div>
+
         <div className="px-10">
-          <Table>
-            <TableHeader className="bg-customTabelHeader text-customHeaderText">
-              {table.getHeaderGroups().map((headerGroup) => (
-                <TableRow key={headerGroup.id}>
-                  {headerGroup.headers.map((header) => (
-                    <TableHead key={header.id}>
-                      {header.isPlaceholder
-                        ? null
-                        : flexRender(
-                            header.column.columnDef.header,
-                            header.getContext()
-                          )}
-                    </TableHead>
-                  ))}
-                </TableRow>
-              ))}
-            </TableHeader>
-            <TableBody className="bg-white ">
-              {table.getRowModel().rows?.length ? (
-                table.getRowModel().rows.map((row) => (
-                  <TableRow
-                    key={row.id}
-                    data-state={row.getIsSelected() && "selected"}
-                  >
-                    {row.getVisibleCells().map((cell) => (
-                      <TableCell key={cell.id}>
-                        {flexRender(
-                          cell.column.columnDef.cell,
-                          cell.getContext()
-                        )}
-                      </TableCell>
-                    ))}
-                  </TableRow>
-                ))
-              ) : (
-                <TableRow>
-                  <TableCell
-                    colSpan={columns.length}
-                    className="h-24 text-center"
-                  >
-                    No results.
-                  </TableCell>
-                </TableRow>
-              )}
-            </TableBody>
-          </Table>
+          <TableComponent columns={columns} data={table.getRowModel().rows} />
         </div>
-        <div className="text-sm ">
-          <UsersTablePagination />
-        </div>
+        <div className="flex items-center justify-end space-x-2 py-4 pr-10"></div>
       </div>
     </>
   );

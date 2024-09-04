@@ -9,26 +9,23 @@ import {
   PaginationEllipsis,
 } from "@/components/ui/pagination";
 
-const itemsPerPage = 5;
-
-const UsersPagination = ({ data }) => {
+const UsersTablePagination = () => {
   const [currentPage, setCurrentPage] = useState(1);
-  const totalPages = Math.ceil(data.length / itemsPerPage);
+  const pageSize = 10;
+  const totalItems = 30;
 
-  const handlePageChange = (pageNumber: number) => {
-    setCurrentPage(pageNumber);
+  const totalPages = Math.ceil(totalItems / pageSize);
+
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page);
   };
 
-  const startIdx = (currentPage - 1) * itemsPerPage;
-  const currentItems = data.slice(startIdx, startIdx + itemsPerPage);
-
   return (
-    <div>
-      <Pagination className="mt-4">
+    <div className="flex  justify-end rou">
+      <Pagination className="mt-2 text-sm ">
         <PaginationContent>
           <PaginationPrevious
             onClick={() => handlePageChange(Math.max(currentPage - 1, 1))}
-            // disabled={currentPage === 1}
           />
           {[...Array(totalPages)].map((_, idx) => (
             <PaginationItem key={idx}>
@@ -45,7 +42,6 @@ const UsersPagination = ({ data }) => {
             onClick={() =>
               handlePageChange(Math.min(currentPage + 1, totalPages))
             }
-            // disabled={currentPage === totalPages}
           />
         </PaginationContent>
       </Pagination>
@@ -53,4 +49,4 @@ const UsersPagination = ({ data }) => {
   );
 };
 
-export default UsersPagination;
+export default UsersTablePagination;

@@ -1,26 +1,25 @@
 import { useState } from "react";
 import CurdUsers from "../Users/CurdUser";
-import BlockContent from "../Users/blockContent";
 import UserHeader from "../Users/UsersHeader";
-import { DataTable } from "../Users/DataTable";
+import { Table } from "@/components/ui/table";
 
 const ToggleContent = () => {
   const [showFirstContent, setShowFirstContent] = useState(true);
 
   const handleSelectUsers = (selectedOptions: string[]) => {
     const [rowSelection, setRowSelection] = useState({});
-      const newRowSelection: { [key: string]: boolean } = {};
-      data.forEach((row) => {
-        if (
-          selectedOptions.includes(row.status) ||
-          selectedOptions.includes("All")
-        ) {
-          newRowSelection[row.id] = true;
-        }
-      });
-      setRowSelection(newRowSelection);
-    };
-  
+    const newRowSelection: { [key: string]: boolean } = {};
+    const data: payment[] = [];
+    data.forEach((row) => {
+      if (
+        selectedOptions.includes(row.status) ||
+        selectedOptions.includes("All")
+      ) {
+        newRowSelection[row.id] = true;
+      }
+    });
+    setRowSelection(newRowSelection);
+  };
 
   const handleToggle = () => {
     setShowFirstContent(!showFirstContent);
@@ -31,9 +30,7 @@ const ToggleContent = () => {
       <div>
         {showFirstContent ? (
           <div>
-            <UserHeader onSelect={handleSelectUsers} />
-            <BlockContent />
-            <DataTable />
+            <Table />
           </div>
         ) : (
           <div>
@@ -42,7 +39,9 @@ const ToggleContent = () => {
           </div>
         )}
       </div>
-      <button onClick={handleToggle}>{showFirstContent ? "eye" : "eye"}</button>
+      <button onClick={handleToggle}>
+        {showFirstContent ? "Button1" : "Button1"}
+      </button>
     </div>
   );
 };
