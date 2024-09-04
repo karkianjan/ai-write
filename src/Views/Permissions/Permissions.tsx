@@ -1,9 +1,11 @@
-import CurdUsers from "../Users/CurdUser";
+
+import TabContent from "./test";
 
 const Permissions = () => {
   return (
     <>
-      <CurdUsers />
+    
+      <TabContent />
     </>
   );
 };

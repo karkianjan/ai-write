@@ -11,7 +11,7 @@ import {
 
 const itemsPerPage = 5;
 
-const MyTable = ({ data }) => {
+const UsersPagination = ({ data }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const totalPages = Math.ceil(data.length / itemsPerPage);
 
@@ -28,7 +28,7 @@ const MyTable = ({ data }) => {
         <PaginationContent>
           <PaginationPrevious
             onClick={() => handlePageChange(Math.max(currentPage - 1, 1))}
-            disabled={currentPage === 1}
+            // disabled={currentPage === 1}
           />
           {[...Array(totalPages)].map((_, idx) => (
             <PaginationItem key={idx}>
@@ -45,7 +45,7 @@ const MyTable = ({ data }) => {
             onClick={() =>
               handlePageChange(Math.min(currentPage + 1, totalPages))
             }
-            disabled={currentPage === totalPages}
+            // disabled={currentPage === totalPages}
           />
         </PaginationContent>
       </Pagination>
@@ -53,4 +53,4 @@ const MyTable = ({ data }) => {
   );
 };
 
-export default MyTable;
+export default UsersPagination;

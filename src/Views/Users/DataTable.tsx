@@ -26,7 +26,7 @@ import Download from "@/components/atom/icons/download";
 import UserHeader from "./UsersHeader";
 import { EyeShow } from "@/components/atom/icons/eye";
 import Close from "@/components/atom/icons/close";
-import { Pagination } from "@/components/ui/pagination";
+import UsersPagination from "./TablePagination";
 
 export type Payment = {
   id: string;
@@ -289,8 +289,6 @@ export function DataTable() {
         </div>
         <div className="flex items-center justify-end space-x-2 py-4 pr-10">
           <div className="">
-            <Pagination />
-            <h1></h1>
           </div>
         </div>
       </div>

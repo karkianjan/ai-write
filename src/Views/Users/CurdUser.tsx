@@ -6,7 +6,7 @@ import { Label } from "@radix-ui/react-label";
 const CurdUsers = () => {
   return (
     <div className="">
-      <div className="flex justify-between items-center h-20 m-10">
+      <div className="flex justify-between items-center h-20 mx-10 ">
         <span>
           <h1 className="font-bold text-xl">ABC Company</h1>
           <p className="text-sm text-customUserSubHeader">
