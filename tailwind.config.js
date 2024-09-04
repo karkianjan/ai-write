@@ -19,6 +19,7 @@ module.exports = {
     },
     extend: {
       colors: {
+        customCheckboxBorder: "#D1D5DB",
         customUserSubHeader: "#4A555D",
         customDeleteAccount: "#C81E1E",
         customPendingText: "#5521B5",

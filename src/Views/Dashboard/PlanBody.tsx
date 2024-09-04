@@ -1,12 +1,11 @@
 import PlanFeatures from "@/components/organisms/dashboard/DashboardHeader/planFeatures";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogTrigger } from "@/components/ui/dialog";
-import { AddPlan } from "@/components/AddPlan/plan";
-
+import AddPlan from "@/components/AddPlan/AddPlan";
 const PlanBody: React.FC = () => {
   return (
     <>
-      <div className=" m-10 bg-customLightGray border rounded-lg h-fit ">
+      <div className=" m-10 bg-customLightGray border rounded-lg h-full ">
         <div className="   xl:h-24  items-center">
           <div className="flex justify-between pt-6">
             <h1 className="pl-10 h-6 text-semibold  hidden shrink-0 text-2xl font-semibold text-dark lg:block">
@@ -28,7 +27,7 @@ const PlanBody: React.FC = () => {
               </Dialog>
             </div>
           </div>
-          <div className="flex bg-customLightGray  text-customGray pt-10 ">
+          <div className="flex bg-customLightGray  text-customGray pt-7 ">
             <div className=" grid-cols-3 flex justify-around flex-1  ">
               <div className="bg-white  px-6 ml-10 py-5 w-80 h-fit 2xl:h-[383px] 2xl:w-[383px] border rounded-md ">
                 <div className="text-xs flex flex-col leading-none space-y-1">

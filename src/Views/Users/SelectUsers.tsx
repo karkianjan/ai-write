@@ -1,4 +1,7 @@
+"use client";
+
 import React, { useEffect, useState, useRef } from "react";
+import Checkbox from "@/components/ui/checkbox";
 
 interface Option {
   id: number;
@@ -94,12 +97,11 @@ const SelectUsers: React.FC<SelectUsersProps> = ({ onSelect }) => {
       </button>
 
       {isOpen && (
-        <div className="absolute  w-full bg-white border border-gray-300 rounded-md outline-none shadow-lg z-10">
+        <div className="absolute w-full bg-white border border-gray-300 rounded-md outline-none shadow-lg z-10">
           <label className="flex items-center p-2 cursor-pointer hover:bg-gray-100">
-            <input
-              type="checkbox"
-              checked={selectedOptions.length === options.length - 1}
-              onChange={handleSelectAll}
+            <Checkbox
+              checked={selectedOptions.length === options.length}
+              onCheckedChange={handleSelectAll}
               className="mr-2"
             />
             All
@@ -109,10 +111,9 @@ const SelectUsers: React.FC<SelectUsersProps> = ({ onSelect }) => {
               key={option.id}
               className="flex items-center p-2 cursor-pointer hover:bg-gray-100"
             >
-              <input
-                type="checkbox"
+              <Checkbox
                 checked={selectedOptions.includes(option.value)}
-                onChange={() => handleCheckboxChange(option.value)}
+                onCheckedChange={() => handleCheckboxChange(option.value)}
                 className="mr-2"
               />
               {option.label}

@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
+import Checkbox from "../ui/checkbox";
 
 interface Option {
   id: number;
@@ -27,11 +28,11 @@ const CustomDropdown: React.FC = () => {
     fetchOptions();
   }, []);
 
-  const handleCheckboxChange = (value: string) => {
+  const handleCheckboxChange = (value: string, isChecked: boolean) => {
     setSelectedOptions((prevSelected) => {
-      const newSelected = prevSelected.includes(value)
-        ? prevSelected.filter((item) => item !== value)
-        : [...prevSelected, value];
+      const newSelected = isChecked
+        ? [...prevSelected, value]
+        : prevSelected.filter((item) => item !== value);
 
       return newSelected;
     });
@@ -92,10 +93,11 @@ const CustomDropdown: React.FC = () => {
               key={option.id}
               className="flex items-center p-2 hover:bg-gray-100 cursor-pointer"
             >
-              <input
-                type="checkbox"
+              <Checkbox
                 checked={selectedOptions.includes(option.value)}
-                onChange={() => handleCheckboxChange(option.value)}
+                onCheckedChange={(isChecked) =>
+                  handleCheckboxChange(option.value, isChecked as boolean)
+                }
                 className="form-checkbox h-4 w-4 text-indigo-600"
               />
               <span className="ml-2 text-gray-700">{option.label}</span>
