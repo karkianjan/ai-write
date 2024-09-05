@@ -2,14 +2,12 @@ import React, { useEffect, useState, useRef } from "react";
 import Checkbox from "../ui/checkbox";
 import Close from "../atom/icons/close";
 import { DropDown } from "../atom/icons/dropDown";
+import { Button } from "../ui/button";
 
 interface Option {
   id: number;
   value: string;
   label: string;
-}
-interface SelectUsersProps {
-  onSelect: (selectedOptions: string[]) => void;
 }
 
 const CustomDropdown: React.FC = () => {
@@ -59,6 +57,11 @@ const CustomDropdown: React.FC = () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
+  const handleRemoveFeature = (value: string) => {
+    setSelectedOptions((prevSelected) =>
+      prevSelected.filter((item) => item !== value)
+    );
+  };
 
   return (
     <div className="relative" ref={dropdownRef}>
@@ -98,14 +101,19 @@ const CustomDropdown: React.FC = () => {
       <div className="mt-3 flex flex-col w-fit gap-3 ">
         {selectedOptions.length > 0 ? (
           <div>
-            <ul className="  text-gray-800 flex text-sm font-semibold w-fit items-center  gap-3">
+            <ul className="  text-gray-800 flex text-sm font-semibold w-fit items-center flex-wrap gap-3">
               {selectedOptions.map((option) => (
                 <li
                   key={option}
                   className=" list-none rounded-lg border-gray-700 flex h-8 border w-28  items-center  justify-between px-2 "
                 >
                   {option}
-                  <Close />
+                  <button
+                    onClick={() => handleRemoveFeature(option)}
+                    className="hover:border-red-800 active:bg-red-800"
+                  >
+                    <Close />
+                  </button>
                 </li>
               ))}
             </ul>
