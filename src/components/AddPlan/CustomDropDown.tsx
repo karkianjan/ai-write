@@ -59,9 +59,9 @@ const CustomDropdown: React.FC = () => {
     <div className="relative" ref={dropdownRef}>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="w-full flex text-gray-400 border border-gray-300 rounded-md p-2"
+        className="w-full flex text-gray-500 border  border-gray-300 rounded-md p-2 hover:border-gray-300"
       >
-        <div className="flex justify-between w-full">
+        <div className="flex justify-between w-full text-sm">
           <span>
             {selectedOptions.length > 0
               ? selectedOptions.join(", ")
@@ -104,7 +104,13 @@ const CustomDropdown: React.FC = () => {
             </label>
           ))}
         </div>
+        
       )}
+      <div className="mt-4">
+        {selectedOptions.length > 0 ? (
+          <div></div>
+        )}
+      </div>
     </div>
   );
 };
