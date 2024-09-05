@@ -1,10 +1,15 @@
 import React, { useEffect, useState, useRef } from "react";
 import Checkbox from "../ui/checkbox";
+import Close from "../atom/icons/close";
+import { DropDown } from "../atom/icons/dropDown";
 
 interface Option {
   id: number;
   value: string;
   label: string;
+}
+interface SelectUsersProps {
+  onSelect: (selectedOptions: string[]) => void;
 }
 
 const CustomDropdown: React.FC = () => {
@@ -63,26 +68,11 @@ const CustomDropdown: React.FC = () => {
       >
         <div className="flex justify-between w-full text-sm">
           <span>
-            {selectedOptions.length > 0
-              ? selectedOptions.join(", ")
-              : "Select features"}
+            {selectedOptions.length > 0 ? "Select features" : "Select features"}
           </span>
-          <svg
-            className={`w-5 h-5 transition-transform ${
-              isOpen ? "transform rotate-180" : ""
-            }`}
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M19 9l-7 7-7-7"
-            />
-          </svg>
+          <span>
+            <DropDown />
+          </span>
         </div>
       </button>
 
@@ -98,17 +88,30 @@ const CustomDropdown: React.FC = () => {
                 onCheckedChange={(isChecked) =>
                   handleCheckboxChange(option.value, isChecked as boolean)
                 }
-                className="form-checkbox h-4 w-4 text-indigo-600"
+                className=" h-4 w-4 "
               />
               <span className="ml-2 text-gray-700">{option.label}</span>
             </label>
           ))}
         </div>
-        
       )}
-      <div className="mt-4">
+      <div className="mt-3 flex flex-col w-fit gap-3 ">
         {selectedOptions.length > 0 ? (
-          <div></div>
+          <div>
+            <ul className="  text-gray-800 flex text-sm font-semibold w-fit items-center  gap-3">
+              {selectedOptions.map((option) => (
+                <li
+                  key={option}
+                  className=" list-none rounded-lg border-gray-700 flex h-8 border w-28  items-center  justify-between px-2 "
+                >
+                  {option}
+                  <Close />
+                </li>
+              ))}
+            </ul>
+          </div>
+        ) : (
+          <p></p>
         )}
       </div>
     </div>
