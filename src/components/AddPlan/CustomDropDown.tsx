@@ -2,7 +2,6 @@ import React, { useEffect, useState, useRef } from "react";
 import Checkbox from "../ui/checkbox";
 import Close from "../atom/icons/close";
 import { DropDown } from "../atom/icons/dropDown";
-import { Button } from "../ui/button";
 
 interface Option {
   id: number;
