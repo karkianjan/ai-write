@@ -174,6 +174,7 @@ export function DataTable() {
   const [sorting, setSorting] = useState<SortingState>([]);
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
   const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({});
+  const [globalFilter, setGlobalFilter] = useState("");
   const [rowSelection, setRowSelection] = useState({});
 
   const handleSelectUsers = (selectedOptions: string[]) => {
@@ -187,6 +188,9 @@ export function DataTable() {
       }
     });
     setRowSelection(newRowSelection);
+  };
+  const handleSearch = (searchValue: string) => {
+    setGlobalFilter(searchValue);
   };
 
   const table = useReactTable({
@@ -202,15 +206,16 @@ export function DataTable() {
     onRowSelectionChange: setRowSelection,
     state: {
       sorting,
-      columnFilters,
+      globalFilter,
       columnVisibility,
       rowSelection,
     },
+    globalFilterFn: "includesString",
   });
 
   return (
     <>
-      <UserHeader onSelect={handleSelectUsers} />
+      <UserHeader onSelect={handleSelectUsers} onSearch={handleSearch} />
       <div className="max-m-fit m-10 bg-customLightGray border rounded-md h-full">
         <div className="flex justify-between pt-6">
           <div className="flex flex-col">
