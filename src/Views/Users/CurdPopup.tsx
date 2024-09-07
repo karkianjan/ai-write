@@ -1,4 +1,6 @@
 import { Button } from "@/components/ui/button";
+import { History } from "@/components/atom/icons/history";
+import { EyeShow } from "@/components/atom/icons/eye";
 import {
   Dialog,
   DialogContent,
@@ -15,40 +17,77 @@ export function CurdPopup() {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button variant="outline">Edit Profile</Button>
+        <Button variant="ghost" className="h-8 w-8 p-0 hover:border-none">
+          <EyeShow />
+        </Button>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[425px]">
+      <DialogContent className="sm:max-w-[425px] w-fit  ">
         <DialogHeader>
-          <DialogTitle>Edit profile</DialogTitle>
-          <DialogDescription>
-            Make changes to your profile here. Click save when you're done.
-          </DialogDescription>
+          <DialogTitle>
+            {" "}
+            <span>
+              <h1 className="font-bold text-xl">ABC Company</h1>
+              <p className="text-sm text-customUserSubHeader">
+                Usage details regarding ABC
+              </p>
+            </span>
+          </DialogTitle>
+          <DialogDescription></DialogDescription>
         </DialogHeader>
-        <div className="grid gap-4 py-4">
-          <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="name" className="text-right">
-              Name
-            </Label>
-            <Input
-              id="name"
-              defaultValue="Pedro Duarte"
-              className="col-span-3"
-            />
-          </div>
-          <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="username" className="text-right">
-              Username
-            </Label>
-            <Input
-              id="username"
-              defaultValue="@peduarte"
-              className="col-span-3"
-            />
+        <div className="flex justify-between items-center h-20 mx-10 ">
+          <div className="flex space-x-5">
+            <span>
+              <Button
+                variant="naked"
+                className="bg-customGreen font-semibold text-white flex justify-between gap-4 hover:border-none"
+              >
+                <History /> Change Plan
+              </Button>
+            </span>
+            <span>
+              <Button
+                variant="naked"
+                className="bg-white font-semibold text-customDeleteAccount border-customDeleteAccount flex justify-between gap-4 hover:border-customDeleteAccount  "
+              >
+                <History /> Disable Account
+              </Button>
+            </span>
+            <span>
+              <Button
+                variant="naked"
+                className="bg-customDeleteAccount font-semibold text-white flex justify-between gap-4 hover:border-none"
+              >
+                <History /> Delete Account
+              </Button>
+            </span>
           </div>
         </div>
-        <DialogFooter>
-          <Button type="submit">Save changes</Button>
-        </DialogFooter>
+        <div className="bg-customLightGray h-52 py-5 mx-10 border rounded-lg">
+          <form className="flex  justify-end space-x-20  pr-8">
+            <span className="space-y-1.5">
+              <Label>First Name</Label>
+              <Input id="fName" type="text"></Input>
+              <br />
+              <Label>Middle Name</Label>
+              <Input id="MName" type="text"></Input>
+            </span>
+            <span className="space-y-1.5">
+              <Label>Last Name</Label>
+              <Input id="lName" type="text"></Input>
+              <br />
+              <Label>Number</Label>
+              <Input id="number" type="number"></Input>
+            </span>
+            <span className="space-y-1.5">
+              <Label>Email</Label>
+              <Input id="email" type="email"></Input>
+              <br />
+              <Label>Address</Label>
+              <Input id="email" type="email"></Input>
+            </span>
+          </form>
+        </div>
+        <DialogFooter></DialogFooter>
       </DialogContent>
     </Dialog>
   );

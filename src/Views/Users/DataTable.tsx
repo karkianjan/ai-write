@@ -24,9 +24,9 @@ import {
 } from "@/components/ui/table";
 import Download from "@/components/atom/icons/download";
 import UserHeader from "./UsersHeader";
-import { EyeShow } from "@/components/atom/icons/eye";
 import Close from "@/components/atom/icons/close";
 import UsersTablePagination from "./TablePagination";
+import { CurdPopup } from "./CurdPopup";
 
 export type Payment = {
   id: string;
@@ -157,9 +157,9 @@ export const columns: ColumnDef<Payment>[] = [
     cell: ({}) => {
       return (
         <div>
-          <Button variant="ghost" className="h-8 w-8 p-0 hover:border-none">
-            <EyeShow />
-          </Button>
+          <span>
+            <CurdPopup />
+          </span>
           <Button variant="ghost" className="h-8 w-8 p-0 hover:border-none">
             <Close />
           </Button>
