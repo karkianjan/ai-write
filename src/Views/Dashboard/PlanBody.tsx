@@ -27,7 +27,7 @@ const PlanBody: React.FC = () => {
               </Dialog>
             </div>
           </div>
-          <div className="flex bg-customLightGray  text-customGray pt-7 ">
+          <div className="flex bg-customLightGray  text-customGray pt-7 2xl:pt-28">
             <div className=" grid-cols-3 flex justify-around flex-1  ">
               <div className="bg-white  px-6 ml-10 py-5 w-80 h-fit 2xl:h-[383px] 2xl:w-[383px] border rounded-md ">
                 <div className="text-xs flex flex-col leading-none space-y-1">

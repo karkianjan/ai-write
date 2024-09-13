@@ -4,7 +4,6 @@ import { EyeShow } from "@/components/atom/icons/eye";
 import {
   Dialog,
   DialogContent,
-  DialogDescription,
   DialogFooter,
   DialogHeader,
   DialogTitle,
@@ -21,21 +20,20 @@ export function CurdPopup() {
           <EyeShow />
         </Button>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[425px] w-fit  ">
+      <DialogContent className="  ">
         <DialogHeader>
           <DialogTitle>
             {" "}
-            <span>
-              <h1 className="font-bold text-xl">ABC Company</h1>
-              <p className="text-sm text-customUserSubHeader">
+            <span className="">
+              <h1 className="font-bold mx-10 text-xl">ABC Company</h1>
+              <p className="text-sm text-customUserSubHeader mx-10">
                 Usage details regarding ABC
               </p>
             </span>
           </DialogTitle>
-          <DialogDescription></DialogDescription>
         </DialogHeader>
-        <div className="flex justify-between items-center h-20 mx-10 ">
-          <div className="flex space-x-5">
+        <div className="flex justify-between flex-end  items-center w-fit h-20 mx-10 ">
+          <div className="flex space-x-5 justify-end ml-96 pl-52">
             <span>
               <Button
                 variant="naked"

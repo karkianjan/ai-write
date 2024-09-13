@@ -216,7 +216,7 @@ export function DataTable() {
   return (
     <>
       <UserHeader onSelect={handleSelectUsers} onSearch={handleSearch} />
-      <div className="max-m-fit m-10 bg-customLightGray border rounded-md h-full">
+      <div className="max-m-fit m-10 2xl:m-20 bg-customLightGray border rounded-md h-full">
         <div className="flex justify-between pt-6">
           <div className="flex flex-col">
             <div className="pl-10 h-6 text-2xl font-semibold text-dark flex flex-row space-x-3">
@@ -244,7 +244,7 @@ export function DataTable() {
           </div>
         </div>
         <div className="flex items-center py-4"></div>
-        <div className="px-10">
+        <div className="px-10 ">
           <Table>
             <TableHeader className="bg-customTabelHeader text-customHeaderText">
               {table.getHeaderGroups().map((headerGroup) => (

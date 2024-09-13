@@ -6,14 +6,14 @@ import { Label } from "@radix-ui/react-label";
 const CurdUsers = () => {
   return (
     <div className="">
-      <div className="flex justify-between items-center h-20 mx-10 ">
-        <span>
+      <div className="flex justify-between items-center h-20 mx-50 ">
+        <span className="px-10px">
           <h1 className="font-bold text-xl">ABC Company</h1>
           <p className="text-sm text-customUserSubHeader">
             Usage details regarding ABC
           </p>
         </span>
-        <div className="flex space-x-5">
+        <div className="flex space-x-5 justify-end">
           <span>
             <Button
               variant="naked"
