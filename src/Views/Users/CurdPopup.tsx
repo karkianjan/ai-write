@@ -32,7 +32,7 @@ export function CurdPopup() {
             </span>
           </DialogTitle>
         </DialogHeader>
-        <div className="flex justify-between flex-end  items-center w-fit h-20 mx-10 ">
+        <div className="flex justify-between flex-end  items-center w-fit h-20 mx-10 lg:w-fit">
           <div className="flex space-x-5 justify-end ml-96 pl-52">
             <span>
               <Button
