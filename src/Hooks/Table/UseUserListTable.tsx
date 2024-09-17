@@ -14,8 +14,8 @@ export interface Users {
   status: boolean;
 }
 
-export const Users = (_data: Users[]) => {
-  console.log("dept", _data);
+export const UseUsersListTable = (data: Users[]) => {
+  console.log("dept", data);
   const columns = useMemo<ColumnDef<Users>[]>(
     () => [
       {
@@ -46,8 +46,7 @@ export const Users = (_data: Users[]) => {
         accessorKey: "monthlyFee",
         header: () => <div className="">MONTHLY FEE</div>,
         cell: ({ row }) => {
-          const amount = parseFloat(row.getValue("monthlyFee"));
-
+          const amount = parseFloat(row.getValue("monthlyFee to string"));
           const formatted = new Intl.NumberFormat("en-US", {
             style: "currency",
             currency: "USD",

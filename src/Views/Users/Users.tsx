@@ -2,14 +2,16 @@ import { Suspense } from "react";
 // Assets
 // Components
 import Sidebar from "@/components/organisms/Sidebar";
-import { DataTable } from "./DataTable";
+// import { DataTable } from "./DataTable";
+import UsersTable from "./UsersDataTable";
 const Users = () => {
   return (
     <div className="flex ">
       <Sidebar />
 
       <div className="flex flex-1 flex-col ">
-        <DataTable />
+        {/* <DataTable /> */}
+        <UsersTable />
       </div>
 
       <div className="">
