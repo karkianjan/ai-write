@@ -1,11 +1,9 @@
 
-import TabContent from "./test";
 
 const Permissions = () => {
   return (
     <>
     
-      <TabContent />
     </>
   );
 };

@@ -2,8 +2,8 @@ import { Suspense } from "react";
 // Assets
 // Components
 import Sidebar from "@/components/organisms/Sidebar";
-import PlanBody from "../Dashboard/PlanBody";
 import PlanHeader from "./PlanHeader";
+import PlanBody from "./PlanBody";
 const Plan = () => {
   return (
     <div className="flex ">

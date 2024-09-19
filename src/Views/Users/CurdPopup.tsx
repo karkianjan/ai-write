@@ -23,7 +23,6 @@ export function CurdPopup() {
       <DialogContent className="  ">
         <DialogHeader>
           <DialogTitle>
-            {" "}
             <span className="">
               <h1 className="font-bold mx-10 text-xl">ABC Company</h1>
               <p className="text-sm text-customUserSubHeader mx-10">
