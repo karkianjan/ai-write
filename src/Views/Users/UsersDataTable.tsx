@@ -5,19 +5,20 @@ import Download from "@/components/atom/icons/download";
 import { DataTable } from "@/organism/Table";
 import { UseUsersListTable } from "@/Hooks/Table/UseUserListTable";
 import { mockData } from "./MockData";
-export type Payment = {
+
+export type Users = {
   id: string;
   name: string;
   serialNumber: number;
   email: string;
-  monthlyFee: string | number;
+  monthlyFee: number;
   expiryDate: string;
   status: "All" | "Paid" | "Pending" | "Lock";
 };
 
 const Users = () => {
   const [page, setPage] = useState(1);
-  const [data] = useState<Payment[]>(mockData);
+  const [data] = useState<Users[]>(mockData);
   const [columns] = UseUsersListTable(data);
   const itemsPerPage = 5;
 

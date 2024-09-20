@@ -63,24 +63,24 @@ export function CurdPopup() {
           <form className="flex  justify-end space-x-20  pr-8">
             <span className="space-y-1.5">
               <Label>First Name</Label>
-              <Input id="fName" type="text"></Input>
+              <Input id="fName" type="text" />
               <br />
               <Label>Middle Name</Label>
-              <Input id="MName" type="text"></Input>
+              <Input id="MName" type="text" />
             </span>
             <span className="space-y-1.5">
               <Label>Last Name</Label>
-              <Input id="lName" type="text"></Input>
+              <Input id="lName" type="text" />
               <br />
               <Label>Number</Label>
-              <Input id="number" type="number"></Input>
+              <Input id="number" type="number" />
             </span>
             <span className="space-y-1.5">
               <Label>Email</Label>
-              <Input id="email" type="email"></Input>
+              <Input id="email" type="email" />
               <br />
               <Label>Address</Label>
-              <Input id="email" type="email"></Input>
+              <Input id="email" type="email" />
             </span>
           </form>
         </div>

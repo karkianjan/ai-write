@@ -9,9 +9,9 @@ export interface Users {
   serialNumber: number;
   name: string;
   email: string;
-  monthlyFee: string;
+  monthlyFee: number;
   expiryDate: string;
-  status: boolean;
+  status: "All" | "Paid" | "Pending" | "Lock";
 }
 
 export const UseUsersListTable = (data: Users[]) => {
@@ -46,7 +46,7 @@ export const UseUsersListTable = (data: Users[]) => {
         accessorKey: "monthlyFee",
         header: () => <div className="">MONTHLY FEE</div>,
         cell: ({ row }) => {
-          const amount = parseFloat(row.getValue("monthlyFee to string"));
+          const amount = parseFloat(row.getValue("monthlyFee"));
           const formatted = new Intl.NumberFormat("en-US", {
             style: "currency",
             currency: "USD",

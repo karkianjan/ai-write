@@ -6,8 +6,8 @@ const PlanBody: React.FC = () => {
   return (
     <>
       <div className=" m-10 bg-customLightGray border rounded-lg h-full ">
-        <div className="   xl:h-24  items-center">
-          <div className="flex justify-between pt-6">
+        <div className="   xl:h-24  lg:h-36 items-center">
+          <div className="flex justify-between pt-6 xl:mx-14 xl:mt-11">
             <h1 className="pl-10 h-6 text-semibold  hidden shrink-0 text-2xl font-semibold text-dark lg:block">
               Our Plan
             </h1>
@@ -29,7 +29,7 @@ const PlanBody: React.FC = () => {
           </div>
           <div className="flex bg-customLightGray  text-customGray pt-7 2xl:pt-28">
             <div className=" grid-cols-3 flex justify-around flex-1  ">
-              <div className="bg-white  px-6 ml-10 py-5 w-80 h-fit 2xl:h-[383px] 2xl:w-[383px] border rounded-md ">
+              <div className="bg-white  px-6 ml-10 py-5 w-80 h-fit xl:h-[300px]  2xl:h-[383px] 2xl:w-[383px] border rounded-md ">
                 <div className="text-xs flex flex-col leading-none space-y-1">
                   <span className=" font-semibold text-xl">$0</span>
                   <span className="text-xl font-semibold text-dark">FREE</span>
